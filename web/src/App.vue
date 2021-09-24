@@ -5,8 +5,10 @@ import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-  <router-view></router-view>
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <div>
+    <router-view></router-view>
+    <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  </div>
 </template>
 
 <style>
