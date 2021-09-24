@@ -12,17 +12,21 @@
     "vue-router": "^4.0.11"
   },
   "devDependencies": {
+    "@tailwindcss/postcss7-compat": "^2.2.14",
     "@typescript-eslint/eslint-plugin": "^4.31.2",
     "@typescript-eslint/parser": "^4.31.2",
     "@vitejs/plugin-vue": "^1.9.0",
+    "autoprefixer": "^9.8.6",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^7.18.0",
+    "postcss": "^7.0.36",
     "prettier": "^2.4.1",
     "sass": "^1.42.1",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.14",
     "typescript": "^4.4.3",
     "vite": "^2.5.10",
     "vue-tsc": "^0.3.0"
