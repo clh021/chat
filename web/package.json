@@ -8,6 +8,7 @@
     "format": "prettier .  --write"
   },
   "dependencies": {
+    "daisyui": "^1.14.1",
     "vue": "^3.0.4"
   },
   "devDependencies": {
