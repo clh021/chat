@@ -5,7 +5,7 @@ module.exports = {
     extends: [
     'eslint:recommended',
     "plugin:vue/vue3-recommended",
-    "**prettier**"
+    "prettier"
     ],
     rules: {
         // override/add rules settings here, such as:
