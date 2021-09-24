@@ -1,6 +1,7 @@
 <template>
   <div>
     Home
+    <br />
     <button
       class="
         inline-block
@@ -21,6 +22,9 @@
     >
       Tailwind Button
     </button>
+    <br />
+    <br />
+    <button class="btn btn-primary">DaisyUI Button</button>
   </div>
 </template>
 <script>
