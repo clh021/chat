@@ -1,14 +1,15 @@
-import Http from '../utils/http'
+import { defineComponent } from "@vue/runtime-core"
+// import Http from '../utils/http'
 export default defineComponent({
   setup() {
-    const store = useStore()
+    // const store = useStore()
     const getData = () => {
-      Http.get('url').then((res: Object) => {
-        console.log(res)
-      })
+      // Http.get('url').then((res: Object) => {
+      //   console.log(res)
+      // })
     }
     return {
-      store,
+      // store,
       getData
     }
   }
