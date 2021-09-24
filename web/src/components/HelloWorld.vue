@@ -9,6 +9,12 @@ const count = ref(0)
 <template>
   <h1>{{ msg }}</h1>
 
+  <router-link to="/">Go to root</router-link>
+  . 
+  <router-link to="/home">Go to Home</router-link>
+  . 
+  <router-link to="/about">Go to About</router-link>
+
   <p>
     Recommended IDE setup:
     <a href="https://code.visualstudio.com/" target="_blank">VSCode</a>
