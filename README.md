@@ -11,3 +11,6 @@ A practice project for learning go language
 - diff type msg tag
 - use it simple web
 - command type for system
+- upload file to onedrive
+- upload file to tg
+- 
