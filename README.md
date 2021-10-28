@@ -13,4 +13,11 @@ A practice project for learning go language
 - command type for system
 - upload file to onedrive
 - upload file to tg
+- max file upload by shasum check and upload keepcontinue
+- manage online use
+- manage reg code
+- manage admin msg type
+- dynamic webserver by not restart bin or auto restart bin
+- user sqlite or file db
+- chat log auto split when max use, chat also can read history which was split
 - 
