@@ -1,18 +1,40 @@
 package chat
 
 import (
+	"embed"
 	"flag"
+	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
+	"path/filepath"
 
 	"github.com/clh021/chat/services/client"
 	"github.com/clh021/chat/services/hub"
 	"github.com/gorilla/websocket"
+	"github.com/linakesi/lnksutils"
 )
+
+//go:embed home.html
+var htmls embed.FS
 
 var upgrader = websocket.Upgrader{
 	ReadBufferSize:  1024,
 	WriteBufferSize: 1024,
+}
+
+func GetProgramPath() string {
+	ex, err := os.Executable()
+	if err == nil {
+		return filepath.Dir(ex)
+	}
+
+	exReal, err := filepath.EvalSymlinks(ex)
+	if err != nil {
+		panic(err)
+	}
+	// fmt.Println("exReal: ", exReal)
+	return filepath.Dir(exReal)
 }
 
 func serveHome(w http.ResponseWriter, r *http.Request) {
@@ -25,7 +47,16 @@ func serveHome(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		return
 	}
-	http.ServeFile(w, r, "home.html")
+	homeFile := filepath.Join(GetProgramPath(), "home.html")
+	homeByte, err := htmls.ReadFile("home.html")
+	if lnksutils.IsFileExist(homeFile) {
+		homeByte, err = ioutil.ReadFile(homeFile)
+	}
+	if err != nil {
+		log.Println(err)
+	}
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	w.Write(homeByte)
 }
 
 // 处理 websocket 请求
