@@ -1,20 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="zh">
 <head>
-    <title>信息发送应用</title>
+    <title>Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script type="text/javascript">
         window.onload = function () {
             var conn;
             var msg = document.getElementById("msg");
             var log = document.getElementById("log");
-            // if (document.location.search == '?sender') {
-            //     document.title = "信息发送应用";
-            document.querySelector("#form").style.display = "block";
-            document.querySelector("#log").style.bottom = "3em";
-            // } else {
-            // setInterval(getHttpMsg, 1500);
-            // }
 
             function appendLog(item) {
                 var doScroll = log.scrollTop > log.scrollHeight - log.clientHeight - 1;
@@ -56,32 +49,7 @@
                 item.innerHTML = "<b>浏览器不支持WebSockets。</b>";
                 appendLog(item);
             }
-
-            function getHttpMsg() {
-                if (window.lnks) {
-                    window.win.readHttpMsg().then((m) => {
-                        console.log(m, m.length);
-                        if (m.length > 1) {
-                            // var item = document.createElement("div");
-                            // item.innerText = lastMsg = m;
-                            // appendLog("HTTP消息：" + item);
-                            document.querySelector("#httpLog").innerHTML = "HTTP消息：" + m;
-                        }
-                    });
-                }
-            }
-            function cleanHttpMsg() {
-                window.win.sendHttpMsg('');
-            }
-            if (window.lnks) {
-                window.win = new window.lnks.MainWindow(window);
-                window.addEventListener("unload", cleanHttpMsg);
-            }
         };
-        function sendHttpMsg() {
-            window.win.sendHttpMsg(msg.value);
-            msg.value = "";
-        }
     </script>
     <style type="text/css">
         html {
@@ -105,17 +73,16 @@
             top: 0.5em;
             left: 0.5em;
             right: 0.5em;
-            bottom: 0.5em;
+            bottom: 3em;
             overflow: auto;
         }
 
         #form {
-            display: none;
             padding: 0 0.5em 0 0.5em;
             margin: 0;
             position: absolute;
             bottom: 1em;
-            left: 0px;
+            left: 0;
             width: 100%;
             overflow: hidden;
         }
@@ -127,9 +94,8 @@
         <div id="httpLog"></div>
     </div>
     <form id="form">
-        <input type="text" id="msg" autofocus style="width: calc(100vw - 290px);" />
-        <input type="submit" value="WebSocket发送" style="width: 138px;" />
-        <button type="button" style="width: 120px;" onclick="sendHttpMsg()">Http发送</button>
+        <input type="text" id="msg" autofocus style="width: calc(100vw - 5.2em)"/>
+        <input type="submit" value="发送" />
     </form>
 </body>
 
