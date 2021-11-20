@@ -67,8 +67,9 @@ func serveWs(hub *hub.Hub, w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	log.Printf("Ip:%s 上线了", r.RemoteAddr)
 	// 实例化当前客户端并记入在线列表
-	client := &client.Client{Conn: conn, Send: make(chan []byte, 256)}
+	client := &client.Client{Ip: r.RemoteAddr, Conn: conn, Send: make(chan []byte, 256)}
 	// hub: hub,
 	// client.hub.register <- client
 

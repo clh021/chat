@@ -1,6 +1,8 @@
 package hub
 
-import "github.com/clh021/chat/services/client"
+import (
+	"github.com/clh021/chat/services/client"
+)
 
 func NewHub() *Hub {
 	return &Hub{
