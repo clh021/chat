@@ -1,15 +1,26 @@
-package hub
+package chat
 
-import (
-	"github.com/clh021/chat/services/client"
-)
+
+type Hub struct {
+	// Registered clients.
+	clients map[*Client]bool
+
+	// Inbound messages from the clients.
+	Broadcast chan []byte
+
+	// Register requests from the clients.
+	Register chan *Client
+
+	// UnRegister requests from clients.
+	UnRegister chan *Client
+}
 
 func NewHub() *Hub {
 	return &Hub{
-		broadcast:  make(chan []byte),
-		register:   make(chan *client.Client),
-		unregister: make(chan *client.Client),
-		clients:    make(map[*client.Client]bool),
+		Broadcast:  make(chan []byte),
+		Register:   make(chan *Client),
+		UnRegister: make(chan *Client),
+		clients:    make(map[*Client]bool),
 	}
 }
 
@@ -17,16 +28,16 @@ func (h *Hub) Run() {
 	for {
 		select {
 		// 上线的客户端记入客户端在线状态列表
-		case client := <-h.register:
+		case client := <-h.Register:
 			h.clients[client] = true
 		// 下线的客户端从客户端在线状态列表中删除，并关闭发送 channel
-		case client := <-h.unregister:
+		case client := <-h.UnRegister:
 			if _, ok := h.clients[client]; ok {
 				delete(h.clients, client)
 				close(client.Send)
 			}
 		// 消息广播，给每一个在线客户端都发送消息
-		case message := <-h.broadcast:
+		case message := <-h.Broadcast:
 			for client := range h.clients {
 				select {
 				case client.Send <- message:

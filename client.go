@@ -1,12 +1,21 @@
-package client
+package chat
 
 import (
 	"bytes"
+	"github.com/gorilla/websocket"
 	"log"
 	"time"
-
-	"github.com/gorilla/websocket"
 )
+
+// 客户端 Hub 读写数据到 websocket
+type Client struct {
+	// User user.User
+	Ip string // 上线的IP地址
+	Conn *websocket.Conn // 对应 websocket 连接
+	Send chan []byte     // 出站消息的缓冲
+}
+
+
 
 const (
 	// Time allowed to write a message to the peer.
@@ -32,9 +41,9 @@ var (
 // The application runs readPump in a per-connection goroutine. The application
 // ensures that there is at most one reader on a connection by executing all
 // reads from this goroutine.
-func (c *Client) ReadPump() {
+func (c *Client) ReadPump(h *Hub) {
 	defer func() {
-		// c.hub.unregister <- c
+		h.UnRegister <- c
 		c.Conn.Close()
 	}()
 	c.Conn.SetReadLimit(maxMessageSize)
@@ -49,7 +58,7 @@ func (c *Client) ReadPump() {
 			break
 		}
 		message = bytes.TrimSpace(bytes.Replace(message, newline, space, -1))
-		// c.hub.broadcast <- message
+		h.Broadcast <- message
 	}
 }
 

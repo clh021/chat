@@ -9,8 +9,6 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/clh021/chat/services/client"
-	"github.com/clh021/chat/services/hub"
 	"github.com/gorilla/websocket"
 	"github.com/linakesi/lnksutils"
 )
@@ -60,7 +58,7 @@ func serveHome(w http.ResponseWriter, r *http.Request) {
 }
 
 // 处理 websocket 请求
-func serveWs(hub *hub.Hub, w http.ResponseWriter, r *http.Request) {
+func serveWs(h *Hub, w http.ResponseWriter, r *http.Request) {
 	conn, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
 		log.Println(err)
@@ -69,19 +67,18 @@ func serveWs(hub *hub.Hub, w http.ResponseWriter, r *http.Request) {
 
 	log.Printf("Ip:%s 上线了", r.RemoteAddr)
 	// 实例化当前客户端并记入在线列表
-	client := &client.Client{Ip: r.RemoteAddr, Conn: conn, Send: make(chan []byte, 256)}
-	// hub: hub,
-	// client.hub.register <- client
+	client := &Client{Ip: r.RemoteAddr, Conn: conn, Send: make(chan []byte, 256)}
+	h.Register <- client
 
 	// 通过在新的 goroutine 中完成所有工作，允许收集调用者引用的内存。
 	go client.WritePump()
-	go client.ReadPump()
+	go client.ReadPump(h)
 }
 
 func Run() {
 	addr := flag.String("addr", ":8080", "http service address")
 	flag.Parse()
-	hub := hub.NewHub()
+	hub := NewHub()
 	go hub.Run()
 	http.HandleFunc("/", serveHome)
 	http.HandleFunc("/ws", func(w http.ResponseWriter, r *http.Request) {
