@@ -19,3 +19,12 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 这是 `esbuild` 的 bug
 
 https://www.jianshu.com/p/dc85066fe1fe
+
+## 参考
+- https://tailwindcomponents.com/component/chat-messages  会话列表挺好的
+- https://tailwindcomponents.com/component/zen-desk-clone  桌面布局
+- https://tailwindcomponents.com/component/quickchat-chat-layout 布局，发送音频文件的消息气泡
+- https://tailwindcomponents.com/component/chat 发送区挺好的
+- https://tailwindcomponents.com/component/example-chat 简洁干净的布局方式和发送区
+- https://tailwindcomponents.com/component/intercoms-inbox-ui-with-tailwind-css 微信风格的布局，带草稿箱
+- https://github.com/ar-android/html-chat-layout 页面客服方式
