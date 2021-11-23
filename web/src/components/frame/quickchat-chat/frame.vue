@@ -1,14 +1,5 @@
-<!doctype html>
-<html lang="en">
-<!--https://tailwindcomponents.com/component/quickchat-chat-layout-->
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://unpkg.com/tailwindcss@1.9.6/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="h-screen overflow-hidden flex items-center justify-center" style="background: #edf2f7;">
-    <div class="flex h-screen antialiased text-gray-800">
+<template>
+  <div class="flex h-screen antialiased text-gray-800">
     <div class="flex flex-row h-full w-full overflow-x-hidden">
       <div class="flex flex-col py-8 pl-6 pr-2 w-64 bg-white flex-shrink-0">
         <div class="flex flex-row items-center justify-center h-12 w-full">
@@ -58,7 +49,7 @@
             <span class="font-bold">Active Conversations</span>
             <span
               class="flex items-center justify-center bg-gray-300 h-4 w-4 rounded-full"
-              >4</span
+            >4</span
             >
           </div>
           <div class="flex flex-col space-y-1 mt-4 -mx-2 h-48 overflow-y-auto">
@@ -122,7 +113,7 @@
             <span class="font-bold">Archivied</span>
             <span
               class="flex items-center justify-center bg-gray-300 h-4 w-4 rounded-full"
-              >7</span
+            >7</span
             >
           </div>
           <div class="flex flex-col space-y-1 mt-4 -mx-2">
@@ -412,5 +403,13 @@
       </div>
     </div>
   </div>
-</body>
-</html>
+</template>
+
+<script>
+export default {
+}
+</script>
+
+<style scoped>
+
+</style>
