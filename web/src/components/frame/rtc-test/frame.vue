@@ -181,11 +181,14 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts">
 import ChatTopbar from './chat-topbar.vue'
 import ChatList from './chat-list.vue'
-import ChatBox from './chat-box.vue'
+import ChatBox from './chat-box/index.vue'
+
+export default {
+  components: { ChatTopbar, ChatList, ChatBox }
+}
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
