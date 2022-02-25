@@ -1,7 +1,7 @@
 <template>
   <div class="w-full h-screen">
     <div class="flex h-full">
-      <ChatMenu></ChatMenu>
+      <!-- <ChatMenu></ChatMenu> -->
       <div class="flex-1 bg-gray-100 w-full h-full">
         <div class="main-body container m-auto w-11/12 h-full flex flex-col">
           <ChatTopbar></ChatTopbar>
@@ -25,10 +25,15 @@
 import ChatTopbar from './chat-topbar.vue'
 import ChatList from './chat-list.vue'
 import ChatBox from './chat-box/index.vue'
-import ChatMenu from './chat-menu.vue'
+// import ChatMenu from './chat-menu.vue'
 
 export default {
-  components: { ChatTopbar, ChatList, ChatBox, ChatMenu }
+  components: {
+    ChatTopbar,
+    ChatList,
+    ChatBox
+    // ChatMenu
+  }
 }
 </script>
 
