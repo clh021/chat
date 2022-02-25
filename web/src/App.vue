@@ -7,15 +7,14 @@
 // import Frame from './components/frame/example-chat/frame.vue'
 // import Frame from './components/frame/chat/frame.vue'
 // import Frame from './components/frame/chat-message/frame.vue'
-import Frame from './components/frame/tailwind-chat/frame.vue'
+// import Frame from './components/frame/tailwind-chat/frame.vue'
+import Frame from './components/frame/rtc-test/frame.vue'
 </script>
 
 <template>
-    <Frame>
-      <router-view></router-view>
-    </Frame>
+  <Frame>
+    <router-view></router-view>
+  </Frame>
 </template>
 
-<style>
-
-</style>
+<style></style>
