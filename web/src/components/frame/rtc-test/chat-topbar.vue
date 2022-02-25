@@ -1,6 +1,6 @@
 <template>
   <div class="py-4 flex-2 flex flex-row">
-    <div class="flex-1">
+    <div class="flex-0">
       <span class="xl:hidden inline-block text-gray-700 hover:text-gray-900 align-bottom">
         <span class="block h-6 w-6 p-1 rounded-full hover:bg-gray-400">
           <svg
@@ -34,9 +34,18 @@
         </span>
       </span>
     </div>
+    <div class="flex-2 overflow-x-auto">
+      <ul class="steps">
+        <li class="step"></li>
+        <li class="step step-secondary"></li>
+        <li class="step step-accent"></li>
+        <li class="step step-error"></li>
+        <li class="step step-warning"></li>
+        <li class="step step-neutral"></li>
+      </ul>
+    </div>
     <div class="flex-1 text-right">
       <span class="inline-block text-gray-700">
-        Status:
         <span
           class="
             inline-block
@@ -48,7 +57,7 @@
             border-2 border-white
           "
         ></span>
-        <b>Online</b>
+        <b>在线</b>
         <span class="inline-block align-text-bottom">
           <svg
             fill="none"
@@ -84,5 +93,18 @@
     </div>
   </div>
 </template>
-<style scoped>
+<style scoped lang="scss">
+.steps {
+  .step {
+    // min-width: 2rem;
+    // grid-template-rows: 10px 1fr;
+    // :before {
+    //   height: 0.5rem;
+    // }
+    // :after {
+    //   height: 1rem;
+    //   width: 1rem;
+    // }
+  }
+}
 </style>
