@@ -11,7 +11,7 @@
             </div>
 
             <div class="flex-1 flex h-full">
-              <ChatList></ChatList>
+              <!-- <ChatList></ChatList> -->
               <ChatBox></ChatBox>
             </div>
           </div>
@@ -23,15 +23,15 @@
 
 <script lang="ts">
 import ChatTopbar from './chat-topbar.vue'
-import ChatList from './chat-list.vue'
+// import ChatList from './chat-list.vue'
 import ChatBox from './chat-box/index.vue'
 // import ChatMenu from './chat-menu.vue'
 
 export default {
   components: {
     ChatTopbar,
-    ChatList,
     ChatBox
+    // ChatList,
     // ChatMenu
   }
 }
