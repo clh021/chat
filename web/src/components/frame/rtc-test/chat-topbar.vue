@@ -34,16 +34,6 @@
         </span>
       </span>
     </div>
-    <div class="flex-2 overflow-x-auto">
-      <ul class="steps">
-        <li class="step"></li>
-        <li class="step step-secondary"></li>
-        <li class="step step-accent"></li>
-        <li class="step step-error"></li>
-        <li class="step step-warning"></li>
-        <li class="step step-neutral"></li>
-      </ul>
-    </div>
     <div class="flex-1 text-right">
       <span class="inline-block text-gray-700">
         <span
