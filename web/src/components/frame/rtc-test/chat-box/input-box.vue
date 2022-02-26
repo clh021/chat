@@ -1,6 +1,6 @@
 <template>
   <div class="write bg-white shadow flex rounded-lg">
-    <div class="flex-3 flex content-center items-center text-center p-4 pr-0">
+    <!-- <div class="flex-3 flex content-center items-center text-center p-4 pr-0">
       <span class="block text-center text-gray-400 hover:text-gray-800">
         <svg
           fill="none"
@@ -16,7 +16,7 @@
           ></path>
         </svg>
       </span>
-    </div>
+    </div> -->
     <div class="flex-1">
       <textarea
         name="message"
@@ -26,8 +26,8 @@
         autofocus
       ></textarea>
     </div>
-    <div class="flex-2 w-32 p-2 flex content-center items-center">
-      <div class="flex-1 text-center">
+    <div class="flex-2 w-16 p-2 flex content-center items-center">
+      <!-- <div class="flex-1 text-center">
         <span class="text-gray-400 hover:text-gray-800">
           <span class="inline-block align-text-bottom">
             <svg
@@ -45,7 +45,7 @@
             </svg>
           </span>
         </span>
-      </div>
+      </div> -->
       <div class="flex-1">
         <button class="bg-blue-400 w-10 h-10 rounded-full inline-block">
           <span class="inline-block align-text-bottom">
