@@ -1,35 +1,22 @@
 {
   "name": "web",
+  "private": true,
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
-    "serve": "vite preview"
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "axios": "^0.21.4",
-    "vue": "^3.2.13",
-    "vite": "^2.5.10",
-    "@vitejs/plugin-vue": "^1.9.0",
-    "vue-router": "^4.0.11"
+    "daisyui": "^2.2.2",
+    "sass": "^1.49.9",
+    "vue": "^3.2.25"
   },
   "devDependencies": {
-    "@tailwindcss/postcss7-compat": "^2.2.14",
-    "@typescript-eslint/eslint-plugin": "^4.31.2",
-    "@typescript-eslint/parser": "^4.31.2",
-    "autoprefixer": "^9.8.6",
-    "daisyui": "^1.14.1",
-    "eslint": "^7.32.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.24.2",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-vue": "^7.18.0",
-    "postcss": "^7.0.36",
-    "prettier": "^2.4.1",
-    "sass": "^1.42.1",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.14",
-    "typescript": "^4.4.3",
-    "vue-tsc": "^0.3.0"
+    "@vitejs/plugin-vue": "^2.2.0",
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.7",
+    "tailwindcss": "^3.0.23",
+    "vite": "^2.8.0"
   }
 }
