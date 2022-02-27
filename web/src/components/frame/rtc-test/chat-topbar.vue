@@ -83,18 +83,5 @@
     </div>
   </div>
 </template>
-<style scoped lang="scss">
-.steps {
-  .step {
-    // min-width: 2rem;
-    // grid-template-rows: 10px 1fr;
-    // :before {
-    //   height: 0.5rem;
-    // }
-    // :after {
-    //   height: 1rem;
-    //   width: 1rem;
-    // }
-  }
-}
+<style scoped>
 </style>
