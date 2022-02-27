@@ -28,25 +28,6 @@
       ></textarea>
     </div>
     <div class="flex-2 w-16 p-2 flex content-center items-center">
-      <!-- <div class="flex-1 text-center">
-        <span class="text-gray-400 hover:text-gray-800">
-          <span class="inline-block align-text-bottom">
-            <svg
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              class="w-6 h-6"
-            >
-              <path
-                d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"
-              ></path>
-            </svg>
-          </span>
-        </span>
-      </div> -->
       <div class="flex-1">
         <label :class="`swap swap-rotate${msgTxt.length > 0 ? ' swap-active' : ''}`">
           <!-- this hidden checkbox controls the state -->
@@ -54,6 +35,8 @@
 
           <!-- 发送 icon -->
           <!-- moreBtnHandle 实际触发的事件应该是 更多按钮 事件 -->
+          <!-- https://igoutu.cn/icons/new 查找图标 -->
+          <!-- https://convertio.co/zh/image-converter/ 没有svg格式可下载可以下载 png 此处转换 -->
           <svg
             class="swap-on fill-current w-10 h-10"
             @click="moreBtnHandle()"
