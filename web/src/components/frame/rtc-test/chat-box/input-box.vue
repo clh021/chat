@@ -53,8 +53,10 @@
           <!-- <input type="checkbox" v-model="hasMsgTxt" /> -->
 
           <!-- 发送 icon -->
+          <!-- moreBtnHandle 实际触发的事件应该是 更多按钮 事件 -->
           <svg
             class="swap-on fill-current w-10 h-10"
+            @click="moreBtnHandle()"
             version="1.0"
             xmlns="http://www.w3.org/2000/svg"
             width="50"
@@ -78,8 +80,10 @@ c0 -75 4 -122 10 -122 6 0 10 47 10 122 l0 122 45 -44 c24 -24 48 -41 52 -37
           </svg>
 
           <!-- 加号 icon -->
+          <!-- moreBtnHandle 实际触发的事件应该是 发送消息 事件 -->
           <svg
             class="swap-off fill-current w-10 h-10"
+            @click="sendMsgHandle()"
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
             y="0px"
@@ -93,21 +97,6 @@ c0 -75 4 -122 10 -122 6 0 10 47 10 122 l0 122 45 -44 c24 -24 48 -41 52 -37
             ></path>
           </svg>
         </label>
-        <!-- <button class="bg-blue-400 w-10 h-10 rounded-full inline-block">
-          <span class="inline-block align-text-bottom">
-            <svg
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              class="w-4 h-4 text-white"
-            >
-              <path d="M5 13l4 4L19 7"></path>
-            </svg>
-          </span>
-        </button> -->
       </div>
     </div>
   </div>
@@ -116,6 +105,14 @@ c0 -75 4 -122 10 -122 6 0 10 47 10 122 l0 122 45 -44 c24 -24 48 -41 52 -37
 export default {
   data() {
     return { msgTxt: '' }
+  },
+  methods: {
+    sendMsgHandle() {
+      console.log('sendMsg')
+    },
+    moreBtnHandle() {
+      console.log('moreBtn')
+    }
   }
 }
 </script>
