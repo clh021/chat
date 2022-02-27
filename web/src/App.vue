@@ -14,7 +14,7 @@ import Frame from './components/frame/rtc-test/frame.vue'
 
 <template>
   <Frame>
-    <router-view></router-view>
+    <!-- <router-view></router-view> -->
   </Frame>
   <!-- <img alt="Vue logo" src="./assets/logo.png" />
   <HelloWorld msg="Hello Vue 3 + Vite" /> -->
