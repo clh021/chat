@@ -19,6 +19,7 @@
     </div> -->
     <div class="flex-1">
       <textarea
+        v-model="msgTxt"
         name="message"
         class="w-full block outline-none py-4 px-4 bg-transparent"
         rows="1"
@@ -49,7 +50,7 @@
       <div class="flex-1">
         <label class="swap swap-rotate">
           <!-- this hidden checkbox controls the state -->
-          <input type="checkbox" />
+          <input type="checkbox" v-model="hasMsgTxt" />
 
           <!-- 发送 icon -->
           <svg
@@ -111,6 +112,15 @@ c0 -75 4 -122 10 -122 6 0 10 47 10 122 l0 122 45 -44 c24 -24 48 -41 52 -37
     </div>
   </div>
 </template>
-<script lang="ts">
-export default {}
+<script>
+export default {
+  data() {
+    return { msgTxt: '' }
+  },
+  computed: {
+    hasMsgTxt() {
+      return this.msgTxt.length > 0
+    }
+  }
+}
 </script>
