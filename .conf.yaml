@@ -1,0 +1,14 @@
+Port: 8000
+# 本地 goproxy 及 vue 的情况
+AllowedOrigins: 
+  - http://localhost.com:8080
+  - http://0.0.0.0:8080
+SessionSecretkey: secretsecrets
+DataDir: test_data
+# sqlite3, mysql: https://gorm.io/zh_CN/docs/connecting_to_the_database.html
+DBType: sqlite3
+DBArgs: "test_data/sqlite3.db"
+DBLogDetail: true
+Supers:
+  - c1Mf0nnw
+  - f45aTSaQ

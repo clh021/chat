@@ -35,7 +35,7 @@ compress:
 	@upx -9 ../bin/chat
 
 run:
-	@../bin/chat
+	@./bin/chat
 
 #sh -c "ulimit -n 20000; go test ./..."
 test: 
