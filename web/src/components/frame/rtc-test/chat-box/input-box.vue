@@ -1,6 +1,6 @@
 <template>
   <div>
-    <InputBoxWrite v-model="showBtnPanel" />
+    <InputBoxWrite v-model="showBtnPanel" @onSendMsg="sendMsgHandle" />
     <InputBoxBtn v-show="showBtnPanel" />
   </div>
 </template>
@@ -16,8 +16,8 @@ export default {
     return { showBtnPanel: false }
   },
   methods: {
-    sendMsgHandle() {
-      console.log('sendMsg')
+    sendMsgHandle(msgTxt) {
+      console.log('sendMsg', msgTxt)
     },
     moreBtnHandle() {
       console.log('moreBtn')

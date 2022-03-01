@@ -115,13 +115,13 @@ c0 -75 4 -122 10 -122 6 0 10 47 10 122 l0 122 45 -44 c24 -24 48 -41 52 -37
 <script>
 export default {
   props: ['modelValue'],
-  emits: ['update:modelValue'],
+  emits: ['update:modelValue', 'on-send-msg'],
   data() {
     return { msgTxt: '' }
   },
   methods: {
     sendMsgHandle() {
-      console.log('sendMsg')
+      this.$emit('on-send-msg', this.msgTxt)
     },
     moreBtnHandle() {
       this.$emit('update:modelValue', !this.modelValue)
