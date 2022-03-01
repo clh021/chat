@@ -66,6 +66,7 @@ c0 -75 4 -122 10 -122 6 0 10 47 10 122 l0 122 45 -44 c24 -24 48 -41 52 -37
           <!-- moreBtnHandle 实际触发的事件应该是 发送消息 事件 -->
           <svg
             class="swap-off fill-current w-10 h-10"
+            v-if="!modelValue"
             @click="sendMsgHandle()"
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
@@ -79,6 +80,33 @@ c0 -75 4 -122 10 -122 6 0 10 47 10 122 l0 122 45 -44 c24 -24 48 -41 52 -37
               d="M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609824 4 46 13.390176 46 25 C 46 36.609824 36.609824 46 25 46 C 13.390176 46 4 36.609824 4 25 C 4 13.390176 13.390176 4 25 4 z M 24 13 L 24 24 L 13 24 L 13 26 L 24 26 L 24 37 L 26 37 L 26 26 L 37 26 L 37 24 L 26 24 L 26 13 L 24 13 z"
             ></path>
           </svg>
+
+          <!-- 减号 icon -->
+          <!-- moreBtnHandle 实际触发的事件应该是 发送消息 事件 -->
+          <svg
+            class="swap-off fill-current w-10 h-10"
+            version="1.0"
+            v-else
+            @click="sendMsgHandle()"
+            xmlns="http://www.w3.org/2000/svg"
+            width="50"
+            height="50"
+            viewBox="0 0 50 50"
+            preserveAspectRatio="xMidYMid meet"
+          >
+            <g transform="translate(0,50) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+              <path
+                d="M155 456 c-60 -28 -87 -56 -114 -116 -36 -79 -19 -183 42 -249 33
+-36 115 -71 167 -71 52 0 134 35 167 71 34 37 63 110 63 159 0 52 -35 134 -71
+167 -37 34 -110 63 -159 63 -27 0 -65 -10 -95 -24z m180 -15 c128 -58 164
+-223 72 -328 -101 -115 -283 -88 -348 52 -79 171 104 354 276 276z"
+              />
+              <path
+                d="M130 250 c0 -6 47 -10 120 -10 73 0 120 4 120 10 0 6 -47 10 -120 10
+-73 0 -120 -4 -120 -10z"
+              />
+            </g>
+          </svg>
         </label>
       </div>
     </div>
@@ -86,6 +114,8 @@ c0 -75 4 -122 10 -122 6 0 10 47 10 122 l0 122 45 -44 c24 -24 48 -41 52 -37
 </template>
 <script>
 export default {
+  props: ['modelValue'],
+  emits: ['update:modelValue'],
   data() {
     return { msgTxt: '' }
   },
@@ -94,7 +124,7 @@ export default {
       console.log('sendMsg')
     },
     moreBtnHandle() {
-      console.log('moreBtn')
+      this.$emit('update:modelValue', !this.modelValue)
     }
   }
 }

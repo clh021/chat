@@ -1,6 +1,6 @@
 <template>
   <div>
-    <InputBoxWrite />
+    <InputBoxWrite v-model="showBtnPanel" />
     <InputBoxBtn v-show="showBtnPanel" />
   </div>
 </template>
