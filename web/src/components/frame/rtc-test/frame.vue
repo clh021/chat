@@ -3,7 +3,7 @@
     <!-- rtcSupport from @/libs/utils.js -->
     <div class="flex h-full" v-if="rtcSupport()">
       <!-- <ChatMenu></ChatMenu> -->
-      <div class="flex-1 bg-gray-100 w-full h-full">
+      <div class="flex-1 w-full h-full">
         <div class="main-body container m-auto w-11/12 h-full flex flex-col">
           <ChatTopbar></ChatTopbar>
           <div class="main flex-1 flex flex-col">

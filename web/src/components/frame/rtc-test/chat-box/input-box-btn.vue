@@ -1,8 +1,8 @@
 <template>
-  <div class="flex space-x-3">
+  <div class="flex place-content-around py-4">
     <!-- https://igoutu.cn/icons/new 查找图标 -->
     <!-- https://convertio.co/zh/image-converter/ 没有svg格式可下载可以下载 png 此处转换 -->
-    <div class="flex-1 rounded text-center bg-gray-200 py-4 border-solid border border-stone-600">
+    <div class="rounded text-center bg-gray-50 px-8 py-6 border-solid border border-gray-200">
       <svg
         version="1.0"
         xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +33,7 @@
 
       视频通话
     </div>
-    <div class="flex-1 rounded text-center bg-gray-200 py-4 border-solid border border-stone-600">
+    <div class="rounded text-center bg-gray-50 px-8 py-6 border-solid border border-gray-200">
       <svg
         version="1.0"
         xmlns="http://www.w3.org/2000/svg"
@@ -60,7 +60,7 @@ c29 -42 30 -48 18 -72 -7 -15 -15 -30 -17 -34 -4 -9 105 -126 130 -139 11 -6
       </svg>
       语音通话
     </div>
-    <div class="flex-1 rounded text-center bg-gray-200 py-4 border-solid border border-stone-600">
+    <div class="rounded text-center bg-gray-50 px-8 py-6 border-solid border border-gray-200">
       <svg
         fill="#000000"
         xmlns="http://www.w3.org/2000/svg"
@@ -74,20 +74,16 @@ c29 -42 30 -48 18 -72 -7 -15 -15 -30 -17 -34 -4 -9 105 -126 130 -139 11 -6
       </svg>
       发送文件
     </div>
-    <div class="flex-1 rounded text-center bg-gray-200 py-4 border-solid border border-stone-600">
+    <div class="rounded text-center bg-gray-50 px-8 py-6 border-solid border border-gray-200">
       <svg
         version="1.0"
         xmlns="http://www.w3.org/2000/svg"
-        width="50.000000pt"
-        height="50.000000pt"
-        viewBox="0 0 50.000000 50.000000"
+        width="50pt"
+        height="50pt"
+        viewBox="0 0 50 50"
         preserveAspectRatio="xMidYMid meet"
       >
-        <g
-          transform="translate(0.000000,50.000000) scale(0.100000,-0.100000)"
-          fill="#000000"
-          stroke="none"
-        >
+        <g transform="translate(0,50) scale(0.1,-0.1)" fill="#000000" stroke="none">
           <path
             d="M130 380 l0 -98 68 -6 c82 -7 82 -7 165 0 l67 6 0 98 0 99 -150 0
 -150 0 0 -99z m138 -5 l3 -80 -61 3 -60 4 0 79 0 80 58 -3 57 -3 3 -80z m142
