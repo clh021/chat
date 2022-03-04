@@ -4,7 +4,7 @@ import './index.css'
 
 const app = createApp(Root)
 
-import utils from './utils'
+import utils from './libs/utils'
 app.use(utils);
 
 app.mount('#app')

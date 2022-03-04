@@ -1,6 +1,7 @@
 <template>
   <div class="w-full h-screen">
-    <div class="flex h-full" v-if="hasRtcApi()">
+    <!-- rtcSupport from @/libs/utils.js -->
+    <div class="flex h-full" v-if="rtcSupport()">
       <!-- <ChatMenu></ChatMenu> -->
       <div class="flex-1 bg-gray-100 w-full h-full">
         <div class="main-body container m-auto w-11/12 h-full flex flex-col">
@@ -36,19 +37,6 @@ export default {
     ChatBox
     // ChatList,
     // ChatMenu
-  },
-  methods: {
-    hasRtcApi() {
-      navigator.getUserMedia =
-        navigator.getUserMedia ||
-        navigator.webkitGetUserMedia ||
-        navigator.mozGetUserMedia ||
-        navigator.msGetUserMedia
-      if (navigator.getUserMedia) {
-        return true
-      }
-      return false
-    }
   }
 }
 </script>
