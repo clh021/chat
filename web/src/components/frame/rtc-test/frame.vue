@@ -26,6 +26,7 @@
 </template>
 
 <script lang="ts">
+import rtc from '@/libs/rtc.js'
 import ChatTopbar from './chat-topbar.vue'
 // import ChatList from './chat-list.vue'
 import ChatBox from './chat-box/index.vue'
@@ -37,6 +38,11 @@ export default {
     ChatBox
     // ChatList,
     // ChatMenu
+  },
+  methods: {
+    rtcSupport() {
+      return rtc.isSupport()
+    }
   }
 }
 </script>
