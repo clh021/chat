@@ -8,6 +8,7 @@
   </div>
 </template>
 <script>
+import rtc from '@/libs/rtc.js'
 import Title from './title.vue'
 import MessageBox from './message-box.vue'
 import InputBox from './input-box.vue'
@@ -26,7 +27,20 @@ export default {
           console.log('navigator.getUserMedia error: ', error)
         }
       )
+    },
+    openHandle(id) {
+      console.log(`system: register success ${id}.`)
+    },
+    connHandle(conn) {
+      conn.on('data', (data) => {
+        console.log(JSON.parse(data))
+      })
     }
+  },
+  mounted() {
+    console.log('mounted.')
+    this.rtc = new rtc('test')
+    this.rtc.handles(this.openHandle, this.connHandle)
   }
 }
 </script>
