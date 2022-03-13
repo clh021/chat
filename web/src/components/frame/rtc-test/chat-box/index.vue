@@ -38,6 +38,12 @@ export default {
     }
   },
   mounted() {
+    // TODO: 名字可以修改，一旦修改，就重新建立连接
+    // TODO: 建立连接的部分独立为一个方法来调用
+    // TODO: 发送消息，接收消息
+    // TODO: 发送视频请求，接受适配请求
+    // TODO: 建立连接的过程可以搞一个系统日志打开
+    // TODO: 所有建立连接的过程都放到系统日志里面去
     console.log('mounted.')
     this.rtc = new rtc('test')
     this.rtc.handles(this.openHandle, this.connHandle)
