@@ -7,7 +7,7 @@
     </div>
   </div>
 </template>
-<script lang="ts">
+<script>
 import Title from './title.vue'
 import MessageBox from './message-box.vue'
 import InputBox from './input-box.vue'

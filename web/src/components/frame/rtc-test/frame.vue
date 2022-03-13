@@ -25,7 +25,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import rtc from '@/libs/rtc.js'
 import ChatTopbar from './chat-topbar.vue'
 // import ChatList from './chat-list.vue'
