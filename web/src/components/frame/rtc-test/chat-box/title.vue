@@ -1,8 +1,13 @@
 <template>
   <div class="flex-3">
-    <h2 class="text-xl py-1 mb-8 border-b-2 border-gray-200">当前空间 <b>银河宇宙空间</b></h2>
+    <div class="text-xl py-1 mb-8 border-b-2 border-gray-200">
+      <input type="text" v-model="modelValue" @blur="$emit('update:modelValue', this.modelValue)" />
+    </div>
   </div>
 </template>
 <script>
-export default {}
+export default {
+  props: ['modelValue'],
+  emits: ['update:modelValue']
+}
 </script>

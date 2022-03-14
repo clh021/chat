@@ -1,6 +1,6 @@
 <template>
   <div class="chat-area flex-1 flex flex-col">
-    <Title></Title>
+    <Title v-model="zoneTitle" @update:modelValue="initRtc()"></Title>
     <MessageBox></MessageBox>
     <div class="flex-2 pt-4 pb-10">
       <InputBox></InputBox>
@@ -17,7 +17,7 @@ export default {
   components: { Title, MessageBox, InputBox },
   data() {
     return {
-      zoneTitle: '银河宇宙空间'
+      zoneTitle: '宇宙空间'
     }
   },
   methods: {
@@ -55,7 +55,7 @@ export default {
     // TODO: 所有建立连接的过程都放到系统日志里面去
     // TODO: 日志中需要较为方便的看出是否是 p2p 连接
     // TODO: 方便转发或者别的方式记录收藏内容
-    // this.initRtc()
+    this.initRtc()
   }
 }
 </script>
