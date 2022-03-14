@@ -15,6 +15,11 @@ import InputBox from './input-box.vue'
 
 export default {
   components: { Title, MessageBox, InputBox },
+  data() {
+    return {
+      zoneTitle: '银河宇宙空间'
+    }
+  },
   methods: {
     getRtcMedia() {
       const constraints = { video: true }
@@ -27,6 +32,10 @@ export default {
           console.log('navigator.getUserMedia error: ', error)
         }
       )
+    },
+    initRtc() {
+      this.rtc = new rtc(this.zoneTitle)
+      this.rtc.handles(this.openHandle, this.connHandle)
     },
     openHandle(id) {
       console.log(`system: register success ${id}.`)
@@ -46,9 +55,7 @@ export default {
     // TODO: 所有建立连接的过程都放到系统日志里面去
     // TODO: 日志中需要较为方便的看出是否是 p2p 连接
     // TODO: 方便转发或者别的方式记录收藏内容
-    console.log('mounted.')
-    this.rtc = new rtc('test')
-    this.rtc.handles(this.openHandle, this.connHandle)
+    // this.initRtc()
   }
 }
 </script>
