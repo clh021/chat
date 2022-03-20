@@ -25,8 +25,6 @@
         <label for="my-drawer" class="drawer-overlay"></label>
         <ul class="menu p-4 overflow-y-auto w-96 bg-base-100 text-base-content">
           <!-- Sidebar content here -->
-          <li><a>Sidebar Item 1</a></li>
-          <li><a>Sidebar Item 2</a></li>
           <ChatList></ChatList>
         </ul>
       </div>
