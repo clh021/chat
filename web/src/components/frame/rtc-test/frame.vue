@@ -10,9 +10,8 @@
             <div class="hidden lg:block heading flex-2">
               <h1 class="text-3xl text-gray-700 mb-4">Chat</h1>
             </div>
-
             <div class="flex-1 flex h-full">
-              <!-- <ChatList></ChatList> -->
+              <ChatList></ChatList>
               <ChatBox></ChatBox>
             </div>
           </div>
@@ -28,15 +27,15 @@
 <script>
 import rtc from '@/libs/rtc.js'
 import ChatTopbar from './chat-topbar.vue'
-// import ChatList from './chat-list.vue'
+import ChatList from './chat-list.vue'
 import ChatBox from './chat-box/index.vue'
 // import ChatMenu from './chat-menu.vue'
 
 export default {
   components: {
     ChatTopbar,
-    ChatBox
-    // ChatList,
+    ChatBox,
+    ChatList
     // ChatMenu
   },
   methods: {
