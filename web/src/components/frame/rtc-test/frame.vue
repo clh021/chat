@@ -4,7 +4,6 @@
       <input id="drawer-chat-list" type="checkbox" class="drawer-toggle" v-model="ChatListToggle" />
       <div class="drawer-content">
         <!-- Page content here -->
-        <label for="drawer-chat-list" class="btn btn-primary drawer-button">Open drawer</label>
         <!-- rtcSupport from @/libs/utils.js -->
         <!-- <ChatMenu></ChatMenu> -->
         <div class="flex-1 w-full h-full">
@@ -14,9 +13,9 @@
               @openSetting="ChatListToggle = true"
             ></ChatTopbar>
             <div class="main flex-1 flex flex-col">
-              <div class="hidden lg:block heading flex-2">
+              <!--div class="hidden lg:block heading flex-2">
                 <h1 class="text-3xl text-gray-700 mb-4">Chat</h1>
-              </div>
+              </div-->
               <div class="flex-1 flex h-full">
                 <ChatBox></ChatBox>
               </div>
