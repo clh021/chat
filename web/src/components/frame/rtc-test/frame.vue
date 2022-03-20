@@ -1,15 +1,18 @@
 <template>
   <div>
     <div class="drawer w-full h-screen" v-if="rtcSupport()">
-      <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+      <input id="drawer-chat-list" type="checkbox" class="drawer-toggle" v-model="ChatListToggle" />
       <div class="drawer-content">
         <!-- Page content here -->
-        <label for="my-drawer" class="btn btn-primary drawer-button">Open drawer</label>
+        <label for="drawer-chat-list" class="btn btn-primary drawer-button">Open drawer</label>
         <!-- rtcSupport from @/libs/utils.js -->
         <!-- <ChatMenu></ChatMenu> -->
         <div class="flex-1 w-full h-full">
           <div class="main-body container m-auto w-11/12 h-full flex flex-col">
-            <ChatTopbar></ChatTopbar>
+            <ChatTopbar
+              @openChatList="ChatListToggle = true"
+              @openSetting="ChatListToggle = true"
+            ></ChatTopbar>
             <div class="main flex-1 flex flex-col">
               <div class="hidden lg:block heading flex-2">
                 <h1 class="text-3xl text-gray-700 mb-4">Chat</h1>
@@ -22,7 +25,7 @@
         </div>
       </div>
       <div class="drawer-side">
-        <label for="my-drawer" class="drawer-overlay"></label>
+        <label for="drawer-chat-list" class="drawer-overlay"></label>
         <ul class="menu p-4 overflow-y-auto w-96 bg-base-100 text-base-content">
           <!-- Sidebar content here -->
           <ChatList></ChatList>
@@ -49,9 +52,18 @@ export default {
     ChatList
     // ChatMenu
   },
+  data() {
+    return {
+      ChatListToggle: false
+    }
+  },
   methods: {
     rtcSupport() {
       return rtc.isSupport()
+    },
+    openChatListHandle(v) {
+      console.log('openChatListHandle', v)
+      this.ChatListToggle = true
     }
   }
 }

@@ -1,7 +1,10 @@
 <template>
   <div class="py-4 flex-2 flex flex-row">
     <div class="flex-0">
-      <span class="xl:hidden inline-block text-gray-700 hover:text-gray-900 align-bottom">
+      <span
+        @click="$emit('openSetting')"
+        class="inline-block text-gray-700 hover:text-gray-900 align-bottom"
+      >
         <span class="block h-6 w-6 p-1 rounded-full hover:bg-gray-400">
           <svg
             class="w-4 h-4"
@@ -16,7 +19,10 @@
           </svg>
         </span>
       </span>
-      <span class="lg:hidden inline-block ml-8 text-gray-700 hover:text-gray-900 align-bottom">
+      <span
+        @click="$emit('openChatList')"
+        class="inline-block ml-8 text-gray-700 hover:text-gray-900 align-bottom"
+      >
         <span class="block h-6 w-6 p-1 rounded-full hover:bg-gray-400">
           <svg
             class="h-4 w-4"
@@ -83,5 +89,11 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  emits: ['openChatList', 'openSetting']
+}
+</script>
+
 <style scoped>
 </style>
