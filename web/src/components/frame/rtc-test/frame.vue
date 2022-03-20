@@ -1,21 +1,34 @@
 <template>
-  <div class="w-full h-screen">
-    <!-- rtcSupport from @/libs/utils.js -->
-    <div class="flex h-full" v-if="rtcSupport()">
-      <!-- <ChatMenu></ChatMenu> -->
-      <div class="flex-1 w-full h-full">
-        <div class="main-body container m-auto w-11/12 h-full flex flex-col">
-          <ChatTopbar></ChatTopbar>
-          <div class="main flex-1 flex flex-col">
-            <div class="hidden lg:block heading flex-2">
-              <h1 class="text-3xl text-gray-700 mb-4">Chat</h1>
-            </div>
-            <div class="flex-1 flex h-full">
-              <ChatList></ChatList>
-              <ChatBox></ChatBox>
+  <div>
+    <div class="drawer w-full h-screen" v-if="rtcSupport()">
+      <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+      <div class="drawer-content">
+        <!-- Page content here -->
+        <label for="my-drawer" class="btn btn-primary drawer-button">Open drawer</label>
+        <!-- rtcSupport from @/libs/utils.js -->
+        <!-- <ChatMenu></ChatMenu> -->
+        <div class="flex-1 w-full h-full">
+          <div class="main-body container m-auto w-11/12 h-full flex flex-col">
+            <ChatTopbar></ChatTopbar>
+            <div class="main flex-1 flex flex-col">
+              <div class="hidden lg:block heading flex-2">
+                <h1 class="text-3xl text-gray-700 mb-4">Chat</h1>
+              </div>
+              <div class="flex-1 flex h-full">
+                <ChatBox></ChatBox>
+              </div>
             </div>
           </div>
         </div>
+      </div>
+      <div class="drawer-side">
+        <label for="my-drawer" class="drawer-overlay"></label>
+        <ul class="menu p-4 overflow-y-auto w-96 bg-base-100 text-base-content">
+          <!-- Sidebar content here -->
+          <li><a>Sidebar Item 1</a></li>
+          <li><a>Sidebar Item 2</a></li>
+          <ChatList></ChatList>
+        </ul>
       </div>
     </div>
     <div class="flex h-full justify-center items-center" v-else>
@@ -27,7 +40,7 @@
 <script>
 import rtc from '@/libs/rtc.js'
 import ChatTopbar from './chat-topbar.vue'
-import ChatList from './chat-list.vue'
+import ChatList from './chat-list-simple.vue'
 import ChatBox from './chat-box/index.vue'
 // import ChatMenu from './chat-menu.vue'
 
