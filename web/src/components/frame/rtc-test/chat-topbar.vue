@@ -1,7 +1,7 @@
 <template>
   <div class="py-4 flex-2 flex flex-row">
     <div class="flex-0">
-      <span
+      <!--span
         @click="$emit('openSetting')"
         class="inline-block text-gray-700 hover:text-gray-900 align-bottom"
       >
@@ -18,10 +18,11 @@
             <path d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
         </span>
-      </span>
+      </span-->
+      <!-- Second btn class : ml-8 -->
       <span
         @click="$emit('openChatList')"
-        class="inline-block ml-8 text-gray-700 hover:text-gray-900 align-bottom"
+        class="inline-block text-gray-700 hover:text-gray-900 align-bottom"
       >
         <span class="block h-6 w-6 p-1 rounded-full hover:bg-gray-400">
           <svg
