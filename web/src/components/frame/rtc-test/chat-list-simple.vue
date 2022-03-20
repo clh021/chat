@@ -28,11 +28,7 @@
       >
         <div class="flex-2">
           <div class="w-12 h-12 relative">
-            <img
-              class="w-12 h-12 rounded-full mx-auto"
-              src="/twc/resources/profile-image.png"
-              alt="chat-user"
-            />
+            <img class="w-12 h-12 rounded-full mx-auto" :src="friend.img" alt="chat-user" />
             <span
               :class="`
                 absolute
@@ -88,7 +84,7 @@ export default {
       friends: [
         {
           name: '良宏',
-          img: '/twc/resources/profile-image.png',
+          img: '/twc/resources/profile-lianghong.png',
           lastMsg: '哇！厉害！',
           lastMsgTime: '15 April',
           unReadCount: 3,
@@ -96,7 +92,7 @@ export default {
         },
         {
           name: '平丽',
-          img: '/twc/resources/profile-image.png',
+          img: '/twc/resources/profile-pingli.png',
           lastMsg: '呀！真不错！',
           lastMsgTime: '15 April',
           unReadCount: 5,
@@ -104,7 +100,7 @@ export default {
         },
         {
           name: '亚琴',
-          img: '/twc/resources/profile-image.png',
+          img: '/twc/resources/profile-yaqin.png',
           lastMsg: '哈哈！真好！',
           lastMsgTime: '15 April',
           unReadCount: 2,
