@@ -11,7 +11,7 @@
             <ChatTopbar
               @openChatList="ChatListToggle = true"
               @openSetting="SettingToggle = true"
-              :state="rtcState"
+              :rtcState="rtcState"
             ></ChatTopbar>
             <div class="main flex-1 flex flex-col">
               <!--div class="hidden lg:block heading flex-2">
