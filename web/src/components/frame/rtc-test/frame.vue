@@ -18,7 +18,7 @@
               </div-->
               <div class="flex-1 flex h-full">
                 <ChatBox></ChatBox>
-                <Setting v-model="SettingToggle"></Setting>
+                <Setting v-model="SettingToggle" @newName="applyNewNameHandle"></Setting>
               </div>
             </div>
           </div>
@@ -67,6 +67,9 @@ export default {
     openChatListHandle(v) {
       console.log('openChatListHandle', v)
       this.ChatListToggle = true
+    },
+    applyNewNameHandle(selfName) {
+      console.log('selfName:', selfName)
     }
   }
 }
