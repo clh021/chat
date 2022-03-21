@@ -63,8 +63,8 @@ export default {
       )
     },
     initRtc() {
-      if (this.modelValue) {
-        this.rtc = new rtc(this.modelValue)
+      if (this.selfName) {
+        this.rtc = new rtc(this.selfName)
         this.rtc.handles(this.openHandle, this.connHandle)
       }
     },

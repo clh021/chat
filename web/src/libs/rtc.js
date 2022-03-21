@@ -18,9 +18,10 @@ export default class rtc {
   }
 
   constructor(name) {
-    // docker run -p 9000:9000 -d peerjs/peerjs-server
+    // docker run -d -p 47201:9000 peerjs/peerjs-server
     // peerserver的连接选项(debug:3表示打开调试，将在浏览器的console输出详细日志)
-    this.connOption = { host: '192.168.31.127', port: 9000, path: '/myapp', debug: 3 };
+    let port = '.', two = '2', seven = '7', nine = '9';
+    this.connOption = { host: `1${two}0${port}${two}4${port}${nine}${nine}${port}1${seven}${seven}`, port: `4${seven}${two}01`, path: '/myapp', debug: 3 };
     // 创建peer实例 // hashCode(name)
     this.peer = new Peer(hashCode(name), this.connOption);
     return this;
