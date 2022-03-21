@@ -17,7 +17,7 @@
                 <h1 class="text-3xl text-gray-700 mb-4">Chat</h1>
               </div-->
               <div class="flex-1 flex h-full">
-                <ChatBox :selfName="selfName"></ChatBox>
+                <ChatBox v-model="friendName" :selfName="selfName"></ChatBox>
 
                 <!-- modal-box begin -->
                 <!-- modal 想办法，一定可以封装成为一个组件的 -->
@@ -77,6 +77,7 @@ export default {
       ChatListToggle: false,
       SettingToggle: false,
       Settings: [],
+      friendName: '小陀螺',
       selfName: ''
     }
   },

@@ -1,7 +1,7 @@
 <template>
   <div class="chat-area flex-1 flex flex-col">
     <Title
-      v-model="zoneTitle"
+      v-model="modelValue"
       v-if="selfName"
       :selfName="selfName"
       @update:modelValue="initRtc()"
@@ -22,10 +22,11 @@ import InputBox from './input-box.vue'
 
 export default {
   components: { Alert, Title, MessageBox, InputBox },
-  props: ['selfName'],
+  props: ['modelValue', 'selfName'],
+  emits: ['update:modelValue'],
   data() {
     return {
-      zoneTitle: '宇宙空间'
+      // friendName: '宇宙空间'
     }
   },
   methods: {
@@ -42,8 +43,10 @@ export default {
       )
     },
     initRtc() {
-      this.rtc = new rtc(this.zoneTitle)
-      this.rtc.handles(this.openHandle, this.connHandle)
+      if (this.modelValue) {
+        this.rtc = new rtc(this.modelValue)
+        this.rtc.handles(this.openHandle, this.connHandle)
+      }
     },
     openHandle(id) {
       console.log(`system: register success ${id}.`)
