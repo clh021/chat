@@ -51,8 +51,8 @@
           :class="`
             inline-block
             align-text-bottom
-            w-4
-            h-4
+            w-5
+            h-5
             ${rtcState ? 'bg-green-400' : 'bg-gray-400'}
             rounded-full
             border-2 border-white
