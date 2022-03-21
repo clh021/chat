@@ -6,7 +6,12 @@
       :selfName="selfName"
       @update:modelValue="initRtc()"
     ></Title>
-    <Alert type="warning" text="提示: 先设置好一个名字，方便朋友找到您" v-else class="mb-4"></Alert>
+    <Alert
+      color="warning"
+      text="提示: 先设置好一个名字，方便朋友找到您"
+      v-else
+      class="mb-4"
+    ></Alert>
     <MessageBox></MessageBox>
     <div class="flex-2 pt-4 pb-10">
       <InputBox></InputBox>
