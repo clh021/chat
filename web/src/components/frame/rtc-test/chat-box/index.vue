@@ -55,19 +55,30 @@ export default {
       console.log('selfName:val:', newSelfName, oldSelfName)
       if (newSelfName) {
         this.rtc = new rtc(newSelfName)
-        this.rtc.handles(this.rtcHandles)
+        this.rtc.handles(this.rtcHandles())
       }
     },
     rtcHandles() {
       return {
         // register成功的回调
         open: (id) => {
+          console.log('rtc:open:')
           console.log(JSON.parse(id))
+          this.$emit('stateChange', true)
         },
-        connection: (dataConnection) => {},
-        call: (mediaConnection) => {},
-        close: () => {},
-        disconnected: () => {},
+        connection: (dataConnection) => {
+          console.log('rtc:connection')
+        },
+        call: (mediaConnection) => {
+          console.log('rtc:call')
+        },
+        close: () => {
+          console.log('rtc:close')
+        },
+        disconnected: () => {
+          console.log('rtc:disconnected')
+          this.$emit('stateChange', false)
+        },
         error: (err) => {
           console.log(err.type)
         }
