@@ -10,7 +10,7 @@
           <div class="main-body container m-auto w-11/12 h-full flex flex-col">
             <ChatTopbar
               @openChatList="ChatListToggle = true"
-              @openSetting="ChatListToggle = true"
+              @openSetting="SettingToggle = true"
             ></ChatTopbar>
             <div class="main flex-1 flex flex-col">
               <!--div class="hidden lg:block heading flex-2">
@@ -18,6 +18,7 @@
               </div-->
               <div class="flex-1 flex h-full">
                 <ChatBox></ChatBox>
+                <Setting v-model="SettingToggle"></Setting>
               </div>
             </div>
           </div>
@@ -43,17 +44,20 @@ import ChatTopbar from './chat-topbar.vue'
 import ChatList from './chat-list-simple.vue'
 import ChatBox from './chat-box/index.vue'
 // import ChatMenu from './chat-menu.vue'
+import Setting from './setting.vue'
 
 export default {
   components: {
     ChatTopbar,
     ChatBox,
-    ChatList
-    // ChatMenu
+    ChatList,
+    // ChatMenu,
+    Setting
   },
   data() {
     return {
-      ChatListToggle: false
+      ChatListToggle: false,
+      SettingToggle: false
     }
   },
   methods: {
