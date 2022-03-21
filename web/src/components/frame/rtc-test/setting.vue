@@ -13,6 +13,7 @@
           class="input input-bordered w-full"
           v-model="modelValue"
           @change="$emit('update:modelValue', modelValue)"
+          @keyup:enter="$emit('update:modelValue', modelValue)"
         />
       </div>
       <!-- <label class="label"> -->
