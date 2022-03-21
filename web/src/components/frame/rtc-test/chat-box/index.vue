@@ -1,11 +1,6 @@
 <template>
   <div class="chat-area flex-1 flex flex-col">
-    <Title
-      v-model="modelValue"
-      v-if="selfName"
-      :selfName="selfName"
-      @update:modelValue="initRtc()"
-    ></Title>
+    <Title v-model="modelValue" v-if="selfName" :selfName="selfName"></Title>
     <Alert
       color="warning"
       text="提示: 先设置好一个名字，方便朋友找到您"
@@ -24,7 +19,6 @@ import Alert from '../components/alert.vue'
 import Title from './title.vue'
 import MessageBox from './message-box.vue'
 import InputBox from './input-box.vue'
-import { watch } from '@vue/runtime-core'
 
 export default {
   components: { Alert, Title, MessageBox, InputBox },
