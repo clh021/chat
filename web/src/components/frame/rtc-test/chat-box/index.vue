@@ -19,6 +19,7 @@ import Alert from '../components/alert.vue'
 import Title from './title.vue'
 import MessageBox from './message-box.vue'
 import InputBox from './input-box.vue'
+import { watch } from '@vue/runtime-core'
 
 export default {
   components: { Alert, Title, MessageBox, InputBox },
@@ -28,6 +29,20 @@ export default {
     return {
       // friendName: '宇宙空间'
     }
+  },
+  setup(props) {
+    watch(
+      () => props.modelValue,
+      (newVal, oldVal) => {
+        console.log('modelValue:val:', newVal, oldVal)
+      }
+    )
+    watch(
+      () => props.selfName,
+      (newVal, oldVal) => {
+        console.log('selfName:val:', newVal, oldVal)
+      }
+    )
   },
   methods: {
     getRtcMedia() {
