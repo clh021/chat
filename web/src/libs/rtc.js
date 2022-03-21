@@ -33,15 +33,30 @@ export default class rtc {
    * @param {function} openHandle function(id){}
    * @param {function} connHandle function(conn){}
    */
-  handles (openHandle, connHandle) {
-    // register成功的回调
-    this.peer.on('open', openHandle);
 
-    this.peer.on('connection', connHandle);
-    // let connHandle = (conn) => {
-    //   conn.on('data', (data) => {
-    //     console.log(JSON.parse(data));
-    //   });
+  /**
+   * 事件绑定
+   * @param {Object} handles peer.on(eventName,{eventName: <function>})
+   */
+  handles (handles) {
+    let events = ['open', 'connection', 'call', 'close', 'disconnected', 'error'];
+    events.forEach(eventName => {
+      if (handles.hasOwnProperty(eventName)) {
+        this.peer.on(eventName, handles[eventName])
+      }
+    });
+    // let handles = {
+    //   // register成功的回调
+    //   open: (id) => {
+    //     console.log(JSON.parse(id))
+    //   },
+    //   connection: (dataConnection) => { },
+    //   call: (mediaConnection) => { },
+    //   close: () => { },
+    //   disconnected: () => { },
+    //   error: (err) => {
+    //     console.log(err.type)
+    //   }
     // };
   }
 

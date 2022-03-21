@@ -11,7 +11,7 @@
             <ChatTopbar
               @openChatList="ChatListToggle = true"
               @openSetting="SettingToggle = true"
-              v-model:state="rtcState"
+              :state="rtcState"
             ></ChatTopbar>
             <div class="main flex-1 flex flex-col">
               <!--div class="hidden lg:block heading flex-2">
@@ -106,6 +106,7 @@ export default {
     },
     stateChangeHandle(state) {
       console.log('state:', state)
+      this.rtcState = state
     }
   }
 }

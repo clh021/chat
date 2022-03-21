@@ -139,7 +139,12 @@
 <script>
 export default {
   props: ['rtcState'],
-  emits: ['openChatList', 'openSetting']
+  emits: ['openChatList', 'openSetting'],
+  created() {
+    this.$watch('rtcState', (newVal, oldVal) => {
+      console.log('rtcState:val:', newVal, oldVal)
+    })
+  }
 }
 </script>
 
