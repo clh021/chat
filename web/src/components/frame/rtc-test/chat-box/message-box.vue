@@ -6,7 +6,7 @@
       :key="`msg_${index}`"
     >
       <div class="flex-2" v-if="!msg.isSelf">
-        <div class="w-12 h-12 relative">
+        <div v-if="msg.img" class="w-12 h-12 relative">
           <img class="w-12 h-12 rounded-full mx-auto" :src="msg.img" alt="chat-user" />
           <span
             class="absolute w-4 h-4 bg-gray-400 rounded-full right-0 bottom-0 border-2 border-white"
@@ -34,13 +34,13 @@ export default {
       messages: [
         {
           isSelf: false,
-          img: '/twc/resources/profile-image.png',
+          // img: '/twc/resources/profile-image.png',
           content: '可以邀请我的家人们都来试试吗？'
         },
         { isSelf: true, content: '好呀！' },
         {
           isSelf: false,
-          img: '/twc/resources/profile-image.png',
+          // img: '/twc/resources/profile-image.png',
           content: '啊哈！太谢谢你啦！'
         },
         { isSelf: true, content: '不客气哈！:D' }
