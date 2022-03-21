@@ -18,7 +18,24 @@
               </div-->
               <div class="flex-1 flex h-full">
                 <ChatBox :selfName="selfName"></ChatBox>
-                <Setting v-model="SettingToggle" @newName="applyNewNameHandle"></Setting>
+
+                <!-- modal-box begin -->
+                <input
+                  type="checkbox"
+                  id="my-modal-5"
+                  class="modal-toggle"
+                  v-model="SettingToggle"
+                />
+                <div class="modal">
+                  <!--  w-11/12 max-w-5xl -->
+                  <div :class="`modal-box${SettingToggle ? ' modal-open' : ''}`">
+                    <Setting v-model="selfName"></Setting>
+                    <div class="modal-action">
+                      <label for="my-modal-5" class="btn btn-active btn-accent"> 确认 </label>
+                    </div>
+                  </div>
+                </div>
+                <!-- modal-box end -->
               </div>
             </div>
           </div>
@@ -58,6 +75,7 @@ export default {
     return {
       ChatListToggle: false,
       SettingToggle: false,
+      Settings: [],
       selfName: ''
     }
   },
