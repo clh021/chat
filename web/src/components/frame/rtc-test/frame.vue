@@ -79,17 +79,19 @@ export default {
     }
   },
   mounted() {
-    this.checkSelfName()
+    this.checkSelfName(this.selfName)
   },
   methods: {
-    selfNameChangeHandle() {
-      console.log('selfNameChangeHandle')
-      this.SettingToggle = true
-    },
-    checkSelfName() {
-      if (this.selfName.length <= 0) {
-        this.SettingToggle = true
+    selfNameChangeHandle(v) {
+      if (this.checkSelfName(v.target.value)) {
+        this.selfName = v.target.value
       }
+    },
+    checkSelfName(name) {
+      let shouldSet = name.length <= 0
+      this.SettingToggle = shouldSet
+      console.log('shouldSet', shouldSet)
+      return !shouldSet
     },
     rtcSupport() {
       return rtc.isSupport()
