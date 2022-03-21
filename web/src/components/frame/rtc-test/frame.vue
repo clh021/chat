@@ -61,7 +61,15 @@ export default {
       selfName: ''
     }
   },
+  mounted() {
+    this.checkSelfName()
+  },
   methods: {
+    checkSelfName() {
+      if (this.selfName.length <= 0) {
+        this.SettingToggle = true
+      }
+    },
     rtcSupport() {
       return rtc.isSupport()
     },
