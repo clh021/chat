@@ -1,4 +1,5 @@
 <template>
+  <!-- 有空时将此页的所有内容都可以封装到本组件中，目前已经够用了 https://daisyui.com/components/alert/ -->
   <div :class="`alert${type ? ' alert-' + type : ''} shadow-lg`">
     <div>
       <svg
