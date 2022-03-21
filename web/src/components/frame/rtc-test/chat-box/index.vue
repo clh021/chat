@@ -35,19 +35,14 @@ export default {
       // friendName: '宇宙空间'
     }
   },
-  setup(props) {
-    watch(
-      () => props.modelValue,
-      (newVal, oldVal) => {
-        console.log('modelValue:val:', newVal, oldVal)
-      }
-    )
-    watch(
-      () => props.selfName,
-      (newVal, oldVal) => {
-        console.log('selfName:val:', newVal, oldVal)
-      }
-    )
+  created() {
+    this.$watch('modelValue', (newVal, oldVal) => {
+      console.log('modelValue:val:', newVal, oldVal)
+    })
+    this.$watch('selfName', (newVal, oldVal) => {
+      console.log('selfName:val:', newVal, oldVal)
+      this.initRtc(newVal, oldVal)
+    })
   },
   methods: {
     getRtcMedia() {
@@ -62,9 +57,10 @@ export default {
         }
       )
     },
-    initRtc() {
-      if (this.selfName) {
-        this.rtc = new rtc(this.selfName)
+    initRtc(newSelfName, oldSelfName) {
+      console.log('selfName:val:', newSelfName, oldSelfName)
+      if (newSelfName) {
+        this.rtc = new rtc(newSelfName)
         this.rtc.handles(this.openHandle, this.connHandle)
       }
     },
