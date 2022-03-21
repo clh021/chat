@@ -90,7 +90,6 @@ export default {
     checkSelfName(name) {
       let shouldSet = name.length <= 0
       this.SettingToggle = shouldSet
-      console.log('shouldSet', shouldSet)
       return !shouldSet
     },
     rtcSupport() {
