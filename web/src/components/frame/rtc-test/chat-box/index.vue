@@ -1,6 +1,6 @@
 <template>
   <div class="chat-area flex-1 flex flex-col">
-    <Title v-model="zoneTitle" @update:modelValue="initRtc()"></Title>
+    <Title v-model="zoneTitle" :selfName="selfName" @update:modelValue="initRtc()"></Title>
     <MessageBox></MessageBox>
     <div class="flex-2 pt-4 pb-10">
       <InputBox></InputBox>
@@ -15,6 +15,7 @@ import InputBox from './input-box.vue'
 
 export default {
   components: { Title, MessageBox, InputBox },
+  props: ['selfName'],
   data() {
     return {
       zoneTitle: '宇宙空间'
