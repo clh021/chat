@@ -1,6 +1,12 @@
 <template>
   <div class="chat-area flex-1 flex flex-col">
-    <Title v-model="zoneTitle" :selfName="selfName" @update:modelValue="initRtc()"></Title>
+    <Title
+      v-model="zoneTitle"
+      v-if="selfName"
+      :selfName="selfName"
+      @update:modelValue="initRtc()"
+    ></Title>
+    <Alert type="warning" text="提示: 先设置好一个名字，方便朋友找到您" v-else class="mb-4"></Alert>
     <MessageBox></MessageBox>
     <div class="flex-2 pt-4 pb-10">
       <InputBox></InputBox>
@@ -9,12 +15,13 @@
 </template>
 <script>
 import rtc from '@/libs/rtc.js'
+import Alert from '../components/alert.vue'
 import Title from './title.vue'
 import MessageBox from './message-box.vue'
 import InputBox from './input-box.vue'
 
 export default {
-  components: { Title, MessageBox, InputBox },
+  components: { Alert, Title, MessageBox, InputBox },
   props: ['selfName'],
   data() {
     return {
