@@ -20,6 +20,7 @@
                 <ChatBox :selfName="selfName"></ChatBox>
 
                 <!-- modal-box begin -->
+                <!-- modal 想办法，一定可以封装成为一个组件的 -->
                 <input
                   type="checkbox"
                   id="my-modal-5"
