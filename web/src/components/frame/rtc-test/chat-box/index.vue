@@ -23,7 +23,7 @@ import InputBox from './input-box.vue'
 export default {
   components: { Alert, Title, MessageBox, InputBox },
   props: ['modelValue', 'selfName'],
-  emits: ['update:modelValue'],
+  emits: ['update:modelValue', 'stateChange'],
   data() {
     return {
       // friendName: '宇宙空间'

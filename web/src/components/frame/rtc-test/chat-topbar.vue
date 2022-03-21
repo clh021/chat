@@ -48,18 +48,18 @@
       <!-- 在线状态 -->
       <span class="inline-block text-gray-700">
         <span
-          class="
+          :class="`
             inline-block
             align-text-bottom
             w-4
             h-4
-            bg-green-400
+            ${rtcState ? 'bg-green-400' : 'bg-gray-400'}
             rounded-full
             border-2 border-white
-          "
+          `"
         ></span>
-        <b>在线</b>
-        <span class="inline-block align-text-bottom">
+        <b>{{ rtcState ? '在线' : '离线' }}</b>
+        <!--span class="inline-block align-text-bottom">
           <svg
             fill="none"
             stroke="currentColor"
@@ -71,7 +71,7 @@
           >
             <path d="M19 9l-7 7-7-7"></path>
           </svg>
-        </span>
+        </span-->
       </span>
 
       <!-- 消息提醒 -->
@@ -138,6 +138,7 @@
 </template>
 <script>
 export default {
+  props: ['rtcState'],
   emits: ['openChatList', 'openSetting']
 }
 </script>

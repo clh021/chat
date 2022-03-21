@@ -11,13 +11,18 @@
             <ChatTopbar
               @openChatList="ChatListToggle = true"
               @openSetting="SettingToggle = true"
+              v-model:state="rtcState"
             ></ChatTopbar>
             <div class="main flex-1 flex flex-col">
               <!--div class="hidden lg:block heading flex-2">
                 <h1 class="text-3xl text-gray-700 mb-4">Chat</h1>
               </div-->
               <div class="flex-1 flex h-full">
-                <ChatBox v-model="friendName" :selfName="selfName"></ChatBox>
+                <ChatBox
+                  v-model="friendName"
+                  :selfName="selfName"
+                  @stateChange="stateChangeHandle"
+                ></ChatBox>
 
                 <!-- modal-box begin -->
                 <!-- modal 想办法，一定可以封装成为一个组件的 -->
@@ -75,7 +80,8 @@ export default {
       SettingToggle: false,
       Settings: [],
       friendName: '小陀螺',
-      selfName: ''
+      selfName: '',
+      rtcState: false
     }
   },
   mounted() {
@@ -97,6 +103,9 @@ export default {
     },
     openChatListHandle(v) {
       this.ChatListToggle = true
+    },
+    stateChangeHandle(state) {
+      console.log('state:', state)
     }
   }
 }
