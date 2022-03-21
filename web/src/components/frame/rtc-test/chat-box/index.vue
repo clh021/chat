@@ -66,7 +66,7 @@ export default {
     // TODO: 所有建立连接的过程都放到系统日志里面去
     // TODO: 日志中需要较为方便的看出是否是 p2p 连接
     // TODO: 方便转发或者别的方式记录收藏内容
-    this.initRtc()
+    // this.initRtc()
   }
 }
 </script>
