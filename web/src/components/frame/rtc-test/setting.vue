@@ -12,20 +12,29 @@
           placeholder="这里输入"
           class="input input-bordered w-full"
           v-model="modelValue"
-          @change="$emit('update:modelValue', modelValue)"
-          @keyup:enter="$emit('update:modelValue', modelValue)"
+          @keyup.enter="settingSubmit"
         />
       </div>
       <!-- <label class="label"> -->
       <!-- <span class="label-text-alt"></span> -->
       <!-- <span class="label-text-alt"></span> -->
       <!-- </label> -->
+      <div class="modal-action">
+        <label for="my-modal-5" class="btn btn-active btn-accent" @click="settingSubmit">
+          确认
+        </label>
+      </div>
     </div>
   </div>
 </template>
 <script>
 export default {
   props: ['modelValue'],
-  emits: ['update:modelValue']
+  emits: ['update:modelValue', 'submit'],
+  methods: {
+    settingSubmit() {
+      this.$emit('update:modelValue', this.modelValue)
+    }
+  }
 }
 </script>

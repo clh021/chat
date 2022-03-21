@@ -30,10 +30,7 @@
                 <div class="modal">
                   <!--  w-11/12 max-w-5xl -->
                   <div :class="`modal-box${SettingToggle ? ' modal-open' : ''}`">
-                    <Setting v-model="selfName"></Setting>
-                    <div class="modal-action">
-                      <label for="my-modal-5" class="btn btn-active btn-accent"> 确认 </label>
-                    </div>
+                    <Setting v-model="selfName" @change="selfNameChangeHandle"></Setting>
                   </div>
                 </div>
                 <!-- modal-box end -->
@@ -85,6 +82,10 @@ export default {
     this.checkSelfName()
   },
   methods: {
+    selfNameChangeHandle() {
+      console.log('selfNameChangeHandle')
+      this.SettingToggle = true
+    },
     checkSelfName() {
       if (this.selfName.length <= 0) {
         this.SettingToggle = true
@@ -94,12 +95,7 @@ export default {
       return rtc.isSupport()
     },
     openChatListHandle(v) {
-      console.log('openChatListHandle', v)
       this.ChatListToggle = true
-    },
-    applyNewNameHandle(selfName) {
-      console.log('selfName:', selfName)
-      this.selfName = selfName
     }
   }
 }
