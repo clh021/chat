@@ -1,8 +1,8 @@
 <template>
-  <div class="flex place-content-around py-4">
+  <div class="flex place-content-around py-1">
     <!-- https://igoutu.cn/icons/new 查找图标 -->
     <!-- https://convertio.co/zh/image-converter/ 没有svg格式可下载可以下载 png 此处转换 -->
-    <div class="rounded text-center bg-gray-50 px-8 py-6 border-solid border border-gray-200">
+    <div class="rounded text-center bg-gray-50 px-6 py-4 border-solid border border-gray-200">
       <svg
         version="1.0"
         xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +33,7 @@
 
       视频通话
     </div>
-    <div class="rounded text-center bg-gray-50 px-8 py-6 border-solid border border-gray-200">
+    <div class="rounded text-center bg-gray-50 px-6 py-4 border-solid border border-gray-200">
       <svg
         version="1.0"
         xmlns="http://www.w3.org/2000/svg"
@@ -56,7 +56,7 @@ c29 -42 30 -48 18 -72 -7 -15 -15 -30 -17 -34 -4 -9 105 -126 130 -139 11 -6
       </svg>
       语音通话
     </div>
-    <div class="rounded text-center bg-gray-50 px-8 py-6 border-solid border border-gray-200">
+    <div class="rounded text-center bg-gray-50 px-6 py-4 border-solid border border-gray-200">
       <svg
         fill="#000000"
         xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +70,7 @@ c29 -42 30 -48 18 -72 -7 -15 -15 -30 -17 -34 -4 -9 105 -126 130 -139 11 -6
       </svg>
       发送文件
     </div>
-    <!--div class="rounded text-center bg-gray-50 px-8 py-6 border-solid border border-gray-200">
+    <!--div class="rounded text-center bg-gray-50 px-6 py-4 border-solid border border-gray-200">
       <svg
         version="1.0"
         xmlns="http://www.w3.org/2000/svg"
