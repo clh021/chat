@@ -21,7 +21,9 @@
         >
           <span>{{ msg.content }}</span>
         </div>
-        <div class="pl-4"><small class="text-gray-500">15 April</small></div>
+        <div class="pl-4">
+          <small class="text-gray-500">{{ msg.time }}</small>
+        </div>
       </div>
     </div>
   </div>
@@ -35,15 +37,17 @@ export default {
         {
           isSelf: false,
           // img: '/twc/resources/profile-image.png',
-          content: '可以邀请我的家人们都来试试吗？'
+          content: '可以邀请我的家人们都来试试吗？',
+          time: '15 April'
         },
-        { isSelf: true, content: '好呀！' },
+        { isSelf: true, content: '好呀！', time: '15 April' },
         {
           isSelf: false,
           // img: '/twc/resources/profile-image.png',
-          content: '啊哈！太谢谢你啦！'
+          content: '啊哈！太谢谢你啦！',
+          time: '15 April'
         },
-        { isSelf: true, content: '不客气哈！:D' }
+        { isSelf: true, content: '不客气哈！:D', time: '15 April' }
       ]
     }
   }
