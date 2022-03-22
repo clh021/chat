@@ -6,9 +6,9 @@
       <svg
         version="1.0"
         xmlns="http://www.w3.org/2000/svg"
-        width="48.000000pt"
-        height="48.000000pt"
-        viewBox="0 0 48.000000 48.000000"
+        width="48pt"
+        height="48pt"
+        viewBox="0 0 48 48"
         preserveAspectRatio="xMidYMid meet"
       >
         <g
@@ -37,16 +37,12 @@
       <svg
         version="1.0"
         xmlns="http://www.w3.org/2000/svg"
-        width="50.000000pt"
-        height="50.000000pt"
-        viewBox="0 0 50.000000 50.000000"
+        width="50pt"
+        height="50pt"
+        viewBox="0 0 50 50"
         preserveAspectRatio="xMidYMid meet"
       >
-        <g
-          transform="translate(0.000000,50.000000) scale(0.100000,-0.100000)"
-          fill="#000000"
-          stroke="none"
-        >
+        <g transform="translate(0,50) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
           <path
             d="M65 439 c-20 -18 -35 -40 -35 -53 1 -107 249 -355 356 -356 24 0 84
 61 84 85 0 8 -25 31 -55 52 -55 36 -56 36 -89 20 l-33 -15 -61 61 -60 62 16
@@ -74,7 +70,7 @@ c29 -42 30 -48 18 -72 -7 -15 -15 -30 -17 -34 -4 -9 105 -126 130 -139 11 -6
       </svg>
       发送文件
     </div>
-    <div class="rounded text-center bg-gray-50 px-8 py-6 border-solid border border-gray-200">
+    <!--div class="rounded text-center bg-gray-50 px-8 py-6 border-solid border border-gray-200">
       <svg
         version="1.0"
         xmlns="http://www.w3.org/2000/svg"
@@ -102,7 +98,7 @@ c29 -42 30 -48 18 -72 -7 -15 -15 -30 -17 -34 -4 -9 105 -126 130 -139 11 -6
       </svg>
 
       文件共享
-    </div>
+    </div-->
   </div>
 </template>
 <script>
