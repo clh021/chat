@@ -7,9 +7,9 @@
       v-else
       class="mb-4"
     ></Alert>
-    <MessageBox></MessageBox>
+    <MessageBox v-model="Messages"></MessageBox>
     <div class="flex-2 pt-4 pb-10">
-      <InputBox></InputBox>
+      <InputBox @sendMsg="sendMsgHandle"></InputBox>
     </div>
   </div>
 </template>
@@ -26,7 +26,7 @@ export default {
   emits: ['update:modelValue', 'stateChange'],
   data() {
     return {
-      // friendName: '宇宙空间'
+      Messages: []
     }
   },
   created() {
@@ -39,6 +39,9 @@ export default {
     })
   },
   methods: {
+    sendMsgHandle(msg) {
+      this.Messages.push({ isSelf: true, content: msg }) //, time: '15 April' })
+    },
     getRtcMedia() {
       const constraints = { video: true }
       navigator.getUserMedia(
@@ -86,8 +89,6 @@ export default {
     }
   },
   mounted() {
-    // TODO: 名字可以修改，一旦修改，就重新建立连接
-    // TODO: 建立连接的部分独立为一个方法来调用
     // TODO: 发送消息，接收消息
     // TODO: 发送视频请求，接受适配请求
     // TODO: 建立连接的过程可以搞一个系统日志打开

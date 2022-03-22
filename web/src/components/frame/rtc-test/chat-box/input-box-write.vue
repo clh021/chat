@@ -122,6 +122,7 @@ export default {
   methods: {
     sendMsgHandle() {
       this.$emit('on-send-msg', this.msgTxt)
+      this.msgTxt = ''
     },
     moreBtnHandle() {
       this.$emit('update:modelValue', !this.modelValue)

@@ -1,8 +1,8 @@
 <template>
   <div class="messages flex-1 overflow-auto">
     <div
+      v-for="(msg, index) in modelValue"
       :class="`message mb-4 flex${msg.isSelf ? ' me text-right' : ''}`"
-      v-for="(msg, index) in messages"
       :key="`msg_${index}`"
     >
       <div class="flex-2" v-if="!msg.isSelf">
@@ -21,7 +21,7 @@
         >
           <span>{{ msg.content }}</span>
         </div>
-        <div class="pl-4">
+        <div v-if="msg.time" class="pl-4">
           <small class="text-gray-500">{{ msg.time }}</small>
         </div>
       </div>
@@ -31,24 +31,25 @@
 
 <script>
 export default {
+  props: ['modelValue'],
   data() {
     return {
-      messages: [
-        {
-          isSelf: false,
-          // img: '/twc/resources/profile-image.png',
-          content: '可以邀请我的家人们都来试试吗？',
-          time: '15 April'
-        },
-        { isSelf: true, content: '好呀！', time: '15 April' },
-        {
-          isSelf: false,
-          // img: '/twc/resources/profile-image.png',
-          content: '啊哈！太谢谢你啦！',
-          time: '15 April'
-        },
-        { isSelf: true, content: '不客气哈！:D', time: '15 April' }
-      ]
+      // messages: [
+      //   {
+      //     isSelf: false,
+      //     // img: '/twc/resources/profile-image.png',
+      //     content: '可以邀请我的家人们都来试试吗？',
+      //     time: '15 April'
+      //   },
+      //   { isSelf: true, content: '好呀！', time: '15 April' },
+      //   {
+      //     isSelf: false,
+      //     // img: '/twc/resources/profile-image.png',
+      //     content: '啊哈！太谢谢你啦！',
+      //     time: '15 April'
+      //   },
+      //   { isSelf: true, content: '不客气哈！:D', time: '15 April' }
+      // ]
     }
   }
 }

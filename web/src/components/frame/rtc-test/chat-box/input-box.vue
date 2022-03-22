@@ -8,6 +8,7 @@
 import InputBoxWrite from './input-box-write.vue'
 import InputBoxBtn from './input-box-btn.vue'
 export default {
+  emits: ['sendMsg'],
   components: {
     InputBoxWrite,
     InputBoxBtn
@@ -18,6 +19,7 @@ export default {
   methods: {
     sendMsgHandle(msgTxt) {
       console.log('sendMsg', msgTxt)
+      this.$emit('sendMsg', msgTxt)
     },
     moreBtnHandle() {
       console.log('moreBtn')
