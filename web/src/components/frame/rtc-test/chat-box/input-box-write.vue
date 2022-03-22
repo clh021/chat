@@ -24,6 +24,7 @@
         class="w-full block outline-none py-4 px-4 bg-transparent"
         rows="1"
         placeholder="输入文字消息..."
+        @keydown.enter="keyDown"
         autofocus
       ></textarea>
     </div>
@@ -120,6 +121,12 @@ export default {
     return { msgTxt: '' }
   },
   methods: {
+    keyDown(e) {
+      if (e.ctrlKey && e.keyCode == 13) {
+        // 用户点击了 ctrl+enter 触发
+        this.sendMsgHandle()
+      }
+    },
     sendMsgHandle() {
       this.$emit('on-send-msg', this.msgTxt)
       this.msgTxt = ''
