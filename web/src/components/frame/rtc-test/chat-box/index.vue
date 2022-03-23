@@ -29,7 +29,7 @@ import InputBox from './input-box.vue'
 export default {
   components: { Alert, Title, MessageBox, InputBox },
   props: ['modelValue', 'selfName'],
-  emits: ['update:modelValue', 'stateChange'],
+  emits: ['update:modelValue', 'stateChange', 'openChatList'],
   data() {
     return {
       Messages: []
@@ -46,7 +46,8 @@ export default {
   },
   methods: {
     noticeFriendNameHandle() {
-      this.$refs.title.friendFocus()
+      // this.$refs.title.friendFocus() // 聚焦子组件输入框，用于填写朋友名字
+      this.$emit('openChatList') // 打开侧边朋友列表，由朋友列表界面负责朋友的维护和选择
     },
     sendMsgHandle(msg) {
       this.Messages.push({ isSelf: true, content: msg }) //, time: '15 April' })

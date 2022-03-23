@@ -22,6 +22,7 @@
                   v-model="friendName"
                   :selfName="selfName"
                   @stateChange="stateChangeHandle"
+                  @openChatList="ChatListToggle = true"
                 ></ChatBox>
 
                 <!-- modal-box begin -->
