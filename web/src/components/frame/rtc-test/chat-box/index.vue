@@ -6,8 +6,9 @@
         color="warning"
         text="提示: 填写您朋友的名字，试着联系TA吧！"
         class="mb-4"
+        @click="noticeFriendNameHandle"
       ></Alert>
-      <Title v-model="modelValue" :selfName="selfName"></Title>
+      <Title ref="title" v-model="modelValue" :selfName="selfName"></Title>
     </div>
     <div v-else>
       <Alert color="warning" text="提示: 先设置好一个名字，方便朋友找到您" class="mb-4"></Alert>
@@ -44,6 +45,9 @@ export default {
     })
   },
   methods: {
+    noticeFriendNameHandle() {
+      this.$refs.title.friendFocus()
+    },
     sendMsgHandle(msg) {
       this.Messages.push({ isSelf: true, content: msg }) //, time: '15 April' })
     },
