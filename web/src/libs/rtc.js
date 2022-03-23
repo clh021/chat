@@ -24,6 +24,8 @@ export default class rtc {
     this.connOption = { host: `1${two}0${port}${two}4${port}${nine}${nine}${port}1${seven}${seven}`, port: `4${seven}${two}01`, path: '/myapp', debug: 3 };
     // 创建peer实例 // hashCode(name)
     this.peer = new Peer(hashCode(name), this.connOption);
+    this.dataConnections = {};
+    this.mediaConnections = {};
     return this;
   }
 
@@ -51,6 +53,32 @@ export default class rtc {
     //     console.log(err.type)
     //   }
     // };
+  }
+  // 主动链接朋友
+  connect (friendName) {
+    let hashFriendName = hashCode(friendName);
+    this.dataConnections[hashFriendName] = this.peer.connect(hashFriendName) //, [options]);
+  }
+  // 给朋友打电话
+  call (friendName, stream) {
+    let hashFriendName = hashCode(friendName);
+    this.mediaConnections[hashFriendName] = this.peer.call(hashFriendName, stream) //, [options]);
+  }
+  // // 断开与服务器的链接，会切断数据和媒体的链接
+  // disconnect () {
+  //   this.peer.disconnect()
+  // }
+  // // 会使用老的 ID 与服务器重新建立链接
+  // reconnect () {
+  //   this.peer.reconnect()
+  // }
+  // // 会销毁所有存在的链接
+  // destroy () {
+  //   this.peer.destroy()
+  // }
+  // A hash of all connections associated with this peer, keyed by the remote peer's ID.
+  connections () {
+    return this.peer.connections
   }
 }
 

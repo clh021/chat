@@ -79,19 +79,24 @@ export default {
           console.log(JSON.parse(id))
           this.$emit('stateChange', true)
         },
+        // 被连接的事件
         connection: (dataConnection) => {
           console.log('rtc:connection')
         },
+        // 被 call 的事件
         call: (mediaConnection) => {
           console.log('rtc:call')
         },
+        // 被 close 的事件
         close: () => {
           console.log('rtc:close')
         },
+        // disconnected 的事件
         disconnected: () => {
           console.log('rtc:disconnected')
           this.$emit('stateChange', false)
         },
+        // error 的事件
         error: (err) => {
           console.log(err.type)
         }
