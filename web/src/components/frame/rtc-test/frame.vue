@@ -19,7 +19,7 @@
               </div-->
               <div class="flex-1 flex h-full">
                 <ChatBox
-                  v-model="friendName"
+                  v-model="currentFriend"
                   :selfName="selfName"
                   @stateChange="stateChangeHandle"
                   @openChatList="ChatListToggle = true"
@@ -49,7 +49,7 @@
         <label for="drawer-chat-list" class="drawer-overlay"></label>
         <ul class="menu p-4 overflow-y-auto w-96 bg-base-100 text-base-content">
           <!-- Sidebar content here -->
-          <ChatList></ChatList>
+          <ChatList @switchFriend="switchFriendHandle"></ChatList>
         </ul>
       </div>
     </div>
@@ -80,15 +80,18 @@ export default {
       ChatListToggle: false,
       SettingToggle: false,
       Settings: [],
-      friendName: '',
       selfName: '',
-      rtcState: false
+      rtcState: false,
+      currentFriend: ''
     }
   },
   mounted() {
     this.checkSelfName(this.selfName)
   },
   methods: {
+    switchFriendHandle(friend) {
+      this.currentFriend = friend.name
+    },
     selfNameChangeHandle(v) {
       if (this.checkSelfName(v.target.value)) {
         this.selfName = v.target.value

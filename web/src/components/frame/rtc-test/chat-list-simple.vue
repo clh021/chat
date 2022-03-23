@@ -25,6 +25,7 @@
         "
         v-for="(friend, index) in friends"
         :key="`friend_${index}`"
+        @click="$emit('switchFriend', friend)"
       >
         <div class="flex-2">
           <div class="w-12 h-12 relative">
@@ -79,6 +80,8 @@
 </template>
 <script>
 export default {
+  // props: ['modelValue'],
+  emits: ['changeFriend'], //'update:modelValue'],
   data() {
     return {
       friends: [
