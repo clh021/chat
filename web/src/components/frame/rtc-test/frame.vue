@@ -79,7 +79,7 @@ export default {
       ChatListToggle: false,
       SettingToggle: false,
       Settings: [],
-      friendName: '小陀螺',
+      friendName: '',
       selfName: '',
       rtcState: false
     }

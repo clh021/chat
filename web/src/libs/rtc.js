@@ -28,13 +28,6 @@ export default class rtc {
   }
 
   /**
-   * Rtc Init
-   * @param {string} name
-   * @param {function} openHandle function(id){}
-   * @param {function} connHandle function(conn){}
-   */
-
-  /**
    * 事件绑定
    * @param {Object} handles peer.on(eventName,{eventName: <function>})
    */
@@ -59,6 +52,5 @@ export default class rtc {
     //   }
     // };
   }
-
 }
 

@@ -1,12 +1,17 @@
 <template>
   <div class="chat-area flex-1 flex flex-col">
-    <Title v-model="modelValue" v-if="selfName" :selfName="selfName"></Title>
-    <Alert
-      color="warning"
-      text="提示: 先设置好一个名字，方便朋友找到您"
-      v-else
-      class="mb-4"
-    ></Alert>
+    <div v-if="selfName">
+      <Alert
+        v-if="!modelValue"
+        color="warning"
+        text="提示: 填写您朋友的名字，试着联系TA吧！"
+        class="mb-4"
+      ></Alert>
+      <Title v-model="modelValue" :selfName="selfName"></Title>
+    </div>
+    <div v-else>
+      <Alert color="warning" text="提示: 先设置好一个名字，方便朋友找到您" class="mb-4"></Alert>
+    </div>
     <MessageBox v-model="Messages"></MessageBox>
     <div class="flex-2 pt-4 pb-10">
       <InputBox @sendMsg="sendMsgHandle"></InputBox>
