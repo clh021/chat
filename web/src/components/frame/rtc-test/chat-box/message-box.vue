@@ -2,10 +2,10 @@
   <div class="messages flex-1 overflow-auto">
     <div
       v-for="(msg, index) in modelValue"
-      :class="`message mb-4 flex${msg.isSelf ? ' me text-right' : ''}`"
+      :class="`message mb-4 flex${msg.type == 'SEND' ? ' me text-right' : ''}`"
       :key="`msg_${index}`"
     >
-      <div class="flex-2" v-if="!msg.isSelf">
+      <div class="flex-2" v-if="msg.type == 'RECEIVE'">
         <div v-if="msg.img" class="w-12 h-12 relative">
           <img class="w-12 h-12 rounded-full mx-auto" :src="msg.img" alt="chat-user" />
           <span
@@ -16,7 +16,7 @@
       <div class="flex-1 px-2">
         <div
           :class="`inline-block rounded-full p-2 px-6 ${
-            msg.isSelf ? 'bg-blue-600 text-white' : 'bg-gray-300 text-gray-700'
+            msg.type == 'RECEIVE' ? 'bg-blue-600 text-white' : 'bg-gray-300 text-gray-700'
           }`"
         >
           <span>{{ msg.content }}</span>
