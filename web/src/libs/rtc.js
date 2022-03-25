@@ -1,5 +1,5 @@
 import Peer from 'peerjs';
-import { hashCode } from './utils';
+import { nameEncode } from './utils';
 export default class rtc {
   /**
    * isRtcSupport
@@ -22,8 +22,8 @@ export default class rtc {
     // peerserver的连接选项(debug:3表示打开调试，将在浏览器的console输出详细日志)
     let port = '.', two = '2', seven = '7', nine = '9';
     this.connOption = { host: `1${two}0${port}${two}4${port}${nine}${nine}${port}1${seven}${seven}`, port: `4${seven}${two}01`, path: '/myapp', debug: 3 };
-    // 创建peer实例 // hashCode(name)
-    this.peer = new Peer(hashCode(name), this.connOption);
+    // 创建peer实例 // nameEncode(name)
+    this.peer = new Peer(nameEncode(name), this.connOption);
     this.dataConnections = {};
     this.mediaConnections = {};
     return this;
@@ -56,13 +56,13 @@ export default class rtc {
   }
   // 主动链接朋友
   connect (friendName) {
-    let hashFriendName = hashCode(friendName);
-    this.dataConnections[hashFriendName] = this.peer.connect(hashFriendName) //, [options]);
+    let encodeFriendName = nameEncode(friendName);
+    this.peer.connect(encodeFriendName) //, [options]);
   }
   // 给朋友打电话
   call (friendName, stream) {
-    let hashFriendName = hashCode(friendName);
-    this.mediaConnections[hashFriendName] = this.peer.call(hashFriendName, stream) //, [options]);
+    let encodeFriendName = nameEncode(friendName);
+    this.mediaConnections[encodeFriendName] = this.peer.call(encodeFriendName, stream) //, [options]);
   }
   // // 断开与服务器的链接，会切断数据和媒体的链接
   // disconnect () {
@@ -76,7 +76,7 @@ export default class rtc {
   // destroy () {
   //   this.peer.destroy()
   // }
-  // A hash of all connections associated with this peer, keyed by the remote peer's ID.
+  // A encode of all connections associated with this peer, keyed by the remote peer's ID.
   connections () {
     return this.peer.connections
   }

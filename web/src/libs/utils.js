@@ -1,13 +1,12 @@
-//peer连接时，id不允许有中文，所以转换成 hashCode 数字
-function hashCode (str) {
-  var hash = 5381, i = str.length;
-  while (i) {
-    hash = (hash * 33) ^ str.charCodeAt(--i);
-  }
-  return hash >>> 0;
+//peer连接时，id不允许有中文，所以转换成 字母数字
+function nameEncode (str) {
+  return encodeURIComponent(str).replaceAll("%", "_").substr(1);
+}
+function nameDecode (str) {
+  return decodeURIComponent(str);
 }
 
 function testFunc (params) {
   return params;
 }
-export { hashCode };
+export { nameEncode, nameDecode };

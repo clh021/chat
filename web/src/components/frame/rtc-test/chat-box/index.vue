@@ -92,7 +92,7 @@ export default {
         // register成功的回调
         open: (id) => {
           console.log('rtc:open:')
-          console.log(JSON.parse(id))
+          console.log(id)
           this.$emit('stateChange', true)
         },
         // 被连接的事件
