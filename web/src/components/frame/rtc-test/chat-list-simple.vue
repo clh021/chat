@@ -81,7 +81,7 @@
 <script>
 export default {
   // props: ['modelValue'],
-  emits: ['changeFriend'], //'update:modelValue'],
+  emits: ['switchFriend'], //'update:modelValue'],
   data() {
     return {
       friends: [
