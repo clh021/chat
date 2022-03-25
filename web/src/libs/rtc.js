@@ -21,7 +21,8 @@ export default class rtc {
     // docker run -d -p 47201:9000 peerjs/peerjs-server
     // peerserver的连接选项(debug:3表示打开调试，将在浏览器的console输出详细日志)
     let port = '.', two = '2', seven = '7', nine = '9';
-    this.connOption = { host: `1${two}0${port}${two}4${port}${nine}${nine}${port}1${seven}${seven}`, port: `4${seven}${two}01`, path: '/myapp', debug: 3 };
+    this.connOption = { host: `1${two}${seven}${port}0${port}0${port}1`, port: `${nine}000`, path: '/myapp', debug: 3 };
+    // this.connOption = { host: `1${two}0${port}${two}4${port}${nine}${nine}${port}1${seven}${seven}`, port: `4${seven}${two}01`, path: '/myapp', debug: 3 };
     // 创建peer实例 // nameEncode(name)
     this.peer = new Peer(nameEncode(name), this.connOption);
     this.dataConnections = {};
@@ -57,12 +58,12 @@ export default class rtc {
   // 主动链接朋友
   connect (friendName) {
     let encodeFriendName = nameEncode(friendName);
-    this.peer.connect(encodeFriendName) //, [options]);
+    return this.peer.connect(encodeFriendName) //, [options]);
   }
   // 给朋友打电话
   call (friendName, stream) {
     let encodeFriendName = nameEncode(friendName);
-    this.mediaConnections[encodeFriendName] = this.peer.call(encodeFriendName, stream) //, [options]);
+    return this.peer.call(encodeFriendName, stream) //, [options]);
   }
   // // 断开与服务器的链接，会切断数据和媒体的链接
   // disconnect () {

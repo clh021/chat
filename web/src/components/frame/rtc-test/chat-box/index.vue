@@ -54,6 +54,9 @@ export default {
   created() {
     this.$watch('modelValue', (newVal, oldVal) => {
       console.log('modelValue:val:', newVal, oldVal)
+      let dataConnection = this.rtc.connect(newVal)
+      console.log(this.rtc.connections())
+      dataConnection.send('发送一个消息试试')
     })
     this.$watch('selfName', (newVal, oldVal) => {
       console.log('selfName:val:', newVal, oldVal)
@@ -93,15 +96,27 @@ export default {
         open: (id) => {
           console.log('rtc:open:')
           console.log(id)
+          if (id == 'unavailable-id') {
+            console.log('名字已经被暂时使用了')
+          }
           this.$emit('stateChange', true)
         },
         // 被连接的事件
         connection: (dataConnection) => {
           console.log('rtc:connection')
+          // 收到消息
+          dataConnection.on('data', function (data) {
+            console.log('Received', data)
+          })
+          // 发送消息
+          console.log('data.send: 哈哈，我收到消息了。')
+          dataConnection.send('哈哈，我收到消息了。')
         },
         // 被 call 的事件
         call: (mediaConnection) => {
           console.log('rtc:call')
+          // Answer the call, providing our mediaStream
+          mediaConnection.answer(mediaStream)
         },
         // 被 close 的事件
         close: () => {
@@ -117,6 +132,14 @@ export default {
           console.log(err.type)
         }
       }
+    },
+    rtcCall() {
+      let friendName = modelValue
+      let call = this.rtc.call(friendName, stream)
+      call.on('stream', function (stream) {
+        // `stream` is the MediaStream of the remote peer.
+        // Here you'd add it to an HTML video/canvas element.
+      })
     }
   },
   mounted() {
