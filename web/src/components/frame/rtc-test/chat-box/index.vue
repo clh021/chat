@@ -33,21 +33,21 @@ export default {
   data() {
     return {
       Messages: [
-        {
-          type: 'RECEIVE',
-          img: '/twc/resources/profile-pingli.png',
-          content: '可以邀请我的家人们都来试试吗？',
-          time: '15 April'
-        },
-        { type: 'SEND', content: '好呀！', time: '15 April' },
-        {
-          type: 'RECEIVE',
-          img: '/twc/resources/profile-pingli.png',
-          content: '啊哈！太谢谢你啦！',
-          time: '15 April'
-        },
-        { type: 'SEND', content: '不客气哈！:D', time: '15 April' },
-        { type: 'SYS', content: '对方已离线', time: '15 April' }
+        // {
+        //   type: 'RECEIVE',
+        //   img: '/twc/resources/profile-pingli.png',
+        //   content: '可以邀请我的家人们都来试试吗？',
+        //   time: '15 April'
+        // },
+        // { type: 'SEND', content: '好呀！', time: '15 April' },
+        // {
+        //   type: 'RECEIVE',
+        //   img: '/twc/resources/profile-pingli.png',
+        //   content: '啊哈！太谢谢你啦！',
+        //   time: '15 April'
+        // },
+        // { type: 'SEND', content: '不客气哈！:D', time: '15 April' },
+        // { type: 'SYS', content: '对方已离线', time: '15 April' }
       ]
     }
   },
