@@ -46,7 +46,8 @@ export default {
           content: '啊哈！太谢谢你啦！',
           time: '15 April'
         },
-        { type: 'SEND', content: '不客气哈！:D', time: '15 April' }
+        { type: 'SEND', content: '不客气哈！:D', time: '15 April' },
+        { type: 'SYS', content: '对方已离线', time: '15 April' }
       ]
     }
   },
