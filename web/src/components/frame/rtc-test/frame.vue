@@ -91,6 +91,7 @@ export default {
   methods: {
     switchFriendHandle(friend) {
       this.currentFriend = friend.name
+      this.ChatListToggle = false
     },
     selfNameChangeHandle(v) {
       if (this.checkSelfName(v.target.value)) {
