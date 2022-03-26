@@ -1,5 +1,5 @@
 import Peer from 'peerjs';
-import { nameEncode } from './utils';
+import { nameEncode, nameDecode } from './utils';
 export default class rtc {
   /**
    * isRtcSupport
@@ -15,6 +15,14 @@ export default class rtc {
       return true
     }
     return false
+  }
+
+  nameEncode (str) {
+    return nameEncode(str)
+  }
+
+  nameDecode (str) {
+    return nameDecode(str)
   }
 
   constructor(name) {

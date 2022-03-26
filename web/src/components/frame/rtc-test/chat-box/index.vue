@@ -69,7 +69,14 @@ export default {
       this.$emit('openChatList') // 打开侧边朋友列表，由朋友列表界面负责朋友的维护和选择
     },
     sendMsgHandle(msg) {
-      this.Messages.push({ isSelf: true, content: msg }) //, time: '15 April' })
+      this.triggerMsgHandle(msg, 'SEND')
+    },
+    triggerMsgHandle(msg, type) {
+      this.Messages.push({
+        type: type,
+        content: msg
+        // time: '15 April'
+      })
     },
     getRtcMedia() {
       const constraints = { video: true }
@@ -98,6 +105,7 @@ export default {
           console.log(id)
           if (id == 'unavailable-id') {
             console.log('名字已经被暂时使用了')
+            this.triggerMsgHandle('名字已经被暂时使用了', 'SYS')
           }
           this.$emit('stateChange', true)
         },
@@ -106,17 +114,30 @@ export default {
           console.log('rtc:connection')
           // 收到消息
           dataConnection.on('data', function (data) {
-            console.log('Received', data)
+            this.triggerMsgHandle('收到了消息', 'SYS')
+            console.log('Received', data) // is serialized by BinaryPack by default and sent to the remote peer.
+            this.triggerMsgHandle(data, 'Receive')
           })
           // 发送消息
-          console.log('data.send: 哈哈，我收到消息了。')
-          dataConnection.send('哈哈，我收到消息了。')
+          console.log('data.send: 哈哈，有新伙伴连接我了。')
+          dataConnection.send('哈哈，有新伙伴连接我了。') // send any type of data, including objects, strings, and blobs.
+          this.triggerMsgHandle('有新伙伴连接你了', 'SYS')
         },
         // 被 call 的事件
         call: (mediaConnection) => {
           console.log('rtc:call')
-          // Answer the call, providing our mediaStream
-          mediaConnection.answer(mediaStream)
+          navigator.mediaDevices.getUserMedia(
+            { video: true, audio: true },
+            (stream) => {
+              mediaConnection.answer(stream) // Answer the mediaConnection with an A/V stream.
+              mediaConnection.on('stream', (remoteStream) => {
+                // Show stream in some <video> element.
+              })
+            },
+            (err) => {
+              console.error('Failed to get local stream', err)
+            }
+          )
         },
         // 被 close 的事件
         close: () => {
@@ -126,6 +147,7 @@ export default {
         disconnected: () => {
           console.log('rtc:disconnected')
           this.$emit('stateChange', false)
+          this.triggerMsgHandle('当前已离线', 'SYS')
         },
         // error 的事件
         error: (err) => {
@@ -135,11 +157,18 @@ export default {
     },
     rtcCall() {
       let friendName = modelValue
-      let call = this.rtc.call(friendName, stream)
-      call.on('stream', function (stream) {
-        // `stream` is the MediaStream of the remote peer.
-        // Here you'd add it to an HTML video/canvas element.
-      })
+      navigator.mediaDevices.getUserMedia(
+        { video: true, audio: true },
+        (stream) => {
+          const call = this.rtc.call(friendName, stream)
+          call.on('stream', (remoteStream) => {
+            // Show stream in some <video> element.
+          })
+        },
+        (err) => {
+          console.error('Failed to get local stream', err)
+        }
+      )
     }
   },
   mounted() {
