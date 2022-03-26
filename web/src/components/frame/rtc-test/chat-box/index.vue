@@ -121,7 +121,8 @@ export default {
           // 发送消息
           console.log('data.send: 哈哈，有新伙伴连接我了。')
           dataConnection.send('哈哈，有新伙伴连接我了。') // send any type of data, including objects, strings, and blobs.
-          this.triggerMsgHandle('有新伙伴连接你了', 'SYS')
+          let newFriendName = this.rtc.nameDecode(dataConnection.peer)
+          this.triggerMsgHandle(`有新伙伴"${newFriendName}"连接你了`, 'SYS')
         },
         // 被 call 的事件
         call: (mediaConnection) => {

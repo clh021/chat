@@ -3,7 +3,7 @@ function nameEncode (str) {
   return encodeURIComponent(str).replaceAll("%", "_").substr(1);
 }
 function nameDecode (str) {
-  return decodeURIComponent(str);
+  return decodeURIComponent("%" + str.replaceAll("_", "%"));
 }
 
 function testFunc (params) {
